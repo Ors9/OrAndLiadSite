@@ -18,15 +18,19 @@ fetch('data/products.json')
           <div class="item-info">
             <span class="price">${product.price} ₪</span>
             ${noteHtml}
-            <span class="add-to-cart-label">הוספה לסל:</span>
-            <div class="quantity-controls">
-              <button onclick="updateCart('${product.name}', ${product.price}, -1, '${product.image}')">➖</button>
-              <span id="count-${product.name}">0</span>
-              <button onclick="updateCart('${product.name}', ${product.price}, 1, '${product.image}')">➕</button>
-            </div>
+            <button class="shop-button" onclick="addToCart(this, '${product.name}', ${product.price}, '${product.image}')">🛒 הוסף לסל</button>
           </div>
         </div>
       `;
       container.appendChild(item);
     });
+
+
+    function addToCart(button, name, price, image) {
+      updateCart(name, price, 1, image);
+      button.textContent = "✔️ נוסף";
+      button.classList.add("added-to-cart");
+      button.disabled = true;
+    }
+
   });
