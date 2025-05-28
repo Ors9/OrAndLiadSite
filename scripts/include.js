@@ -13,3 +13,19 @@ function includeHTML() {
   });
 }
 window.addEventListener('DOMContentLoaded', includeHTML);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new MutationObserver(() => {
+    const links = document.querySelectorAll("header nav a");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage || (linkPage === "index.html" && currentPage === "")) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
