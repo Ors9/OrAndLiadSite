@@ -16,7 +16,7 @@ fetch('data/products.json')
         <div class="item-row">
           <img src="${product.image}" alt="${product.name}">
           <div class="item-info">
-            <span class="price">${product.price} ₪</span>
+            <span class="price">${product.price} $</span>
             ${noteHtml}
             <button class="button" onclick="updateCart('${product.name}', ${product.price}, 1, '${product.image}')">
               הוסף לסל 🛒

@@ -1,23 +1,67 @@
 [
   {
-    "name": "עוגת שוקולד",
+    "name": "XXXX",
     "price": 35,
     "image": "images/Toy.jpg",
     "category": "cakes",
     "note": ""
   },
   {
-    "name": "לחמניות חלה",
+    "name": "XXXXX",
     "price": 12,
     "image": "images/Toy.jpg",
     "category": "breads",
     "note": ""
   },
   {
-    "name": "מאפינס וניל",
+    "name": "Fat toy",
+    "price": 18,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  },
+    {
+    "name": "XXXX",
+    "price": 35,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  },
+  {
+    "name": "XXXXX",
+    "price": 12,
+    "image": "images/Toy.jpg",
+    "category": "breads",
+    "note": ""
+  },
+  {
+    "name": "Fat toy",
+    "price": 18,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  },
+
+    {
+    "name": "XXXX",
+    "price": 35,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  },
+  {
+    "name": "XXXXX",
+    "price": 12,
+    "image": "images/Toy.jpg",
+    "category": "breads",
+    "note": ""
+  },
+  {
+    "name": "Fat toy",
     "price": 18,
     "image": "images/Toy.jpg",
     "category": "cakes",
     "note": ""
   }
+  
 ]
