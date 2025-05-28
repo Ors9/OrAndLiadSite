@@ -1,0 +1,23 @@
+[
+  {
+    "name": "עוגת שוקולד",
+    "price": 35,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  },
+  {
+    "name": "לחמניות חלה",
+    "price": 12,
+    "image": "images/Toy.jpg",
+    "category": "breads",
+    "note": ""
+  },
+  {
+    "name": "מאפינס וניל",
+    "price": 18,
+    "image": "images/Toy.jpg",
+    "category": "cakes",
+    "note": ""
+  }
+]
