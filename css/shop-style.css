@@ -17,7 +17,6 @@ body {
 .category {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
 .category-title {
@@ -25,14 +24,16 @@ body {
   font-weight: 600;
   color: #222;
   position: relative;
-  padding-bottom: 12px;
+  
   border-bottom: 2px solid #e0e0e0;
 }
 
 .product-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 32px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  gap: 30px;
+  padding: 10px;
 }
 
 
@@ -51,6 +52,7 @@ body {
   border-radius: 10px;
   width: 280px;
   overflow: hidden;
+  
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
