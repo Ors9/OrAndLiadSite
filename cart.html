@@ -229,6 +229,31 @@ main {
 }
 
 
+#cart-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  table-layout: fixed; /* ✅ מוסיף! */
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  #cart-table th,
+  #cart-table td {
+    font-size: 0.8rem;
+    padding: 8px 4px;
+  }
+
+  .qty-controls button {
+    padding: 2px 6px;
+  }
+
+  .product-image {
+    height: 40px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -244,28 +269,29 @@ main {
 </header>
 
 <main>
-  <table id="cart-table" style="display:none;">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Qty</th>
-        <th>Price</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <div class="table-container">
+    <table id="cart-table" style="display:none;">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
   <div class="empty-cart" id="empty-cart">Your cart is currently empty.</div>
 
-<div class="cart-footer" id="cart-actions" style="display: none;">
-  <div class="total" id="cart-total">Total: 0 $</div>
-  <div class="actions">
-   <!-- <a href="shopping.html" class="back-btn">← Back to Shop</a> -->
-    <button class="checkout-btn">Proceed to Checkout</button>
+  <div class="cart-footer" id="cart-actions" style="display: none;">
+    <div class="total" id="cart-total">Total: 0 $</div>
+    <div class="actions">
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
   </div>
-</div>
 </main>
 <script>
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
