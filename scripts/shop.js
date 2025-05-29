@@ -76,7 +76,7 @@ fetch('data/products.json')
       `;
 
       const button = document.createElement("button");
-      button.className = "button";
+      button.className = "add-to-cart-button";
       button.textContent = "Add to Cart 🛒";
       button.addEventListener("click", () => {
         updateCart(product.name, product.price, 1, product.image, button);
