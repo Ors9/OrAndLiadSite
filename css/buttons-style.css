@@ -20,8 +20,14 @@
 
 @media (max-width: 600px) {
   .button {
-    padding: 6px 10px;
-    font-size: 0.85rem;
-    margin: 4px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    margin: 2px;
+  }
+
+  header nav {
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 }
