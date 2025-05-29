@@ -31,20 +31,23 @@
 /* מצב מובייל */
 @media (max-width: 600px) {
   .header-container {
-    flex-direction: column;
+    flex-direction: row;   /* במקום column */
     align-items: center;
+    justify-content: space-between;
+    gap: 10px; /* אם צריך רווח בין הלוגו לטקסט */
   }
 
   .logo-link img.logo {
-    height: 70px;
+    height: 70px; /* גובה לוגו מותאם למובייל */
   }
 
   .cart-header h1 {
-    margin-top: 10px;
     font-size: 1.1rem;
-    text-align: center;
+    margin: 0;
+    text-align: start;
   }
 }
+
 /* ✅ הוספה: כותרת בלבן */
 .header-container h1 {
   color: white;
@@ -125,8 +128,8 @@ tr:nth-child(even) {
 button {
   font-size: 1rem;
   padding: 4px 10px;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  /*bbackground-color: #eee;
+  order: 1px solid #ccc;*/
   cursor: pointer;
 }
 
