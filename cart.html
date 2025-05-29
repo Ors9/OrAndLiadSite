@@ -48,7 +48,6 @@ tr:nth-child(even) {
 
 .product-image {
   height: 60px;
-  border-radius: 5px;
 }
 
 .empty-cart {
@@ -63,7 +62,6 @@ button {
   padding: 4px 10px;
   background-color: #eee;
   border: 1px solid #ccc;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -92,50 +90,61 @@ button:hover {
   align-items: center;
   z-index: 1000;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .cart-footer .total {
   font-size: 1.1rem;
   font-weight: bold;
   margin: 5px 0;
+  text-align: center;
 }
+
 
 .cart-footer .actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center; /* למרכז במחשב */
 }
 
 .cart-footer .actions a,
 .cart-footer .actions button {
-  padding: 8px 14px;
+  display: inline-block;
+  padding: 12px 16px;
   font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  max-width: 240px;
 }
 
+/* עיצובים צבעוניים */
 .cart-footer .back-btn {
   background-color: #ddd;
   color: #333;
 }
 
 .cart-footer .checkout-btn {
-  background-color: #28a745;
+  background-color: #4CAF50;
   color: white;
 }
 
-/* Responsive */
+/* 📱 Mobile: total goes above buttons */
 @media (max-width: 600px) {
   .cart-footer {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
   }
 
   .cart-footer .actions {
     flex-direction: column;
+    align-items: center;
     width: 100%;
   }
 
@@ -143,8 +152,11 @@ button:hover {
   .cart-footer .actions button {
     width: 100%;
   }
-}
 
+  .cart-footer .total {
+    margin-bottom: 8px;
+  }
+}
 
 
 
