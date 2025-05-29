@@ -19,9 +19,18 @@
       display: inline-block;
     }
 
-    .footer-links {
-      margin: 15px 0;
-    }
+.footer-links {
+  display: flex;
+  flex-wrap: nowrap;         /* לא לאפשר ירידת שורה */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                 /* מרווח קטן בין קישורים */
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: auto;
+  padding: 0 10px;
+  font-size: 0.85rem;        /* טקסט קטן יותר */
+}
 
     .footer-links a {
       color: #fff;
@@ -32,7 +41,7 @@
     }
 
     .footer-links a:hover {
-      color: #ffcc80;
+      color: #333; /* #ff9800 the looking good orange*/
     }
 
     .footer-note {
@@ -46,8 +55,8 @@
 
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="terms.html">Terms & Conditions</a>
+    <a href="about.html">About</a>
+    <a href="terms.html">Terms</a>
     <a href="contact.html">Contact</a>
   </div>
 

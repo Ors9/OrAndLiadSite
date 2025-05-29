@@ -3,61 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us – PUPPERDISE</title>
+  
   <link rel="stylesheet" href="css/style.css">
   <script src="scripts/include.js" defer></script>
   <script src="scripts/shop.js" defer></script>
+</head>
 
-  <style>
-    body {
-      background-color: #fff;
-      color: #111;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
+    .cards.blog-posts .card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #000;
-    }
+.cards.blog-posts .card:hover {
+  transform: scale(1.02);
+}
 
-    .hero p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px 20px 60px;
-    }
-
-    .about-content h3 {
-      font-size: 1.6rem;
-      margin-top: 40px;
-      color: #111;
-    }
-
-    .about-content p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #333;
-    }
-
-    .hero p {
-  color: #000;
+.cards.blog-posts .card .btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #333; /*the orange style #ff9800; */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 
-  </style>
-</head>
+</style>
 
 <body>
 
@@ -65,20 +42,48 @@
 
   <main>
     <section class="hero">
-      <h2>About PUPPERDISE</h2>
-      <p>A modern space for dog lovers, built on care, simplicity, and trust.</p>
+      <div class="container">
+        <h2>Welcome to the PUPPERDISE Blog 🐾</h2>
+        <p>Your go-to spot for expert tips, dog care stories, training advice, and more!</p>
+      </div>
     </section>
 
-    <section class="about-content">
-      <h3>Our Story</h3>
-      <p>PUPPERDISE was born out of a genuine love for dogs and a desire to make caring for them easier, more joyful, and more beautiful. What started as a local project quickly grew into a trusted online home for dog parents everywhere.</p>
+    <section class="cards blog-posts">
+      <div class="card">
+        <h3>🛁 How to Bathe Your Dog the Right Way</h3>
+        <p>Learn how often to bathe, which shampoos to use, and tips for a stress-free wash day.</p>
+        <a href="post1.html" class="btn">Read More</a>
+      </div>
 
-      <h3>What We Believe In</h3>
-      <p>We believe in simplicity, quality, and kindness. Every product, every article, and every customer experience is guided by these values. Whether it's a soft blanket or a practical guide, it’s all chosen with purpose and heart.</p>
+      <div class="card">
+        <h3>🍖 5 Superfoods Your Dog Will Love</h3>
+        <p>Boost your pup’s health with tasty, nutritious snacks you probably already have at home.</p>
+        <a href="post2.html" class="btn">Read More</a>
+      </div>
 
-      <h3>Our Mission</h3>
-      <p>To help dogs live better lives — and to help you care for them with confidence. We provide honest service, reliable delivery, and a growing selection of high-quality items and ideas.</p>
+      <div class="card">
+        <h3>🐶 Puppy Training 101</h3>
+        <p>Housebreaking, basic commands, and socialization — the essentials for happy pups.</p>
+        <a href="post3.html" class="btn">Read More</a>
+      </div>
 
+      <div class="card">
+        <h3>🏠 Creating the Perfect Dog-Friendly Home</h3>
+        <p>Simple home upgrades that make life better for you and your best friend.</p>
+        <a href="post4.html" class="btn">Read More</a>
+      </div>
+
+      <div class="card">
+        <h3>🚶 Daily Walks: How Long is Enough?</h3>
+        <p>Understand your dog’s exercise needs and how to make walks more engaging.</p>
+        <a href="post5.html" class="btn">Read More</a>
+      </div>
+
+      <div class="card">
+        <h3>✈️ Traveling with Your Dog</h3>
+        <p>Tips for road trips, flights, and hotel stays with your furry companion.</p>
+        <a href="post6.html" class="btn">Read More</a>
+      </div>
     </section>
   </main>
 
