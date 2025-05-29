@@ -1,3 +1,47 @@
+// ✅ Update cart icon count
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const countSpan = document.querySelector(".cart-count");
+  if (countSpan) {
+    countSpan.textContent = count;
+  }
+}
+
+// ✅ Add or update item in cart
+function updateCart(name, price, quantity, image, buttonElement) {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+
+  const existingItem = cart.find(item => item.name === name);
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    cart.push({ name, price, quantity, image });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+
+  // ✅ Button feedback
+  if (buttonElement) {
+    buttonElement.textContent = "✓ Added – Click to add more";
+    buttonElement.disabled = true;
+
+    setTimeout(() => {
+      buttonElement.textContent = "Add to Cart 🛒";
+      buttonElement.disabled = false;
+    }, 2000);
+  }
+}
+
+// ✅ Load products from JSON and display them
 fetch('data/products.json')
   .then(response => response.json())
   .then(products => {
@@ -18,12 +62,21 @@ fetch('data/products.json')
           <div class="item-info">
             <span class="price">${product.price} $</span>
             ${noteHtml}
-            <button class="button" onclick="updateCart('${product.name}', ${product.price}, 1, '${product.image}')">
-              הוסף לסל 🛒
-            </button>
           </div>
         </div>
       `;
+
+      const button = document.createElement("button");
+      button.className = "button";
+      button.textContent = "Add to Cart 🛒";
+      button.addEventListener("click", () => {
+        updateCart(product.name, product.price, 1, product.image, button);
+      });
+
+      item.querySelector(".item-info").appendChild(button);
       container.appendChild(item);
     });
+
+    // ✅ After rendering products, update count
+    updateCartCount();
   });

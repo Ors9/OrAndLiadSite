@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th {
+  background-color: #333;
+  color: white;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+td {
+  padding: 12px 8px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.product-image {
+  height: 60px;
+  border-radius: 5px;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 40px;
+}
+
+button {
+  font-size: 1rem;
+  padding: 4px 10px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cart-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.cart-footer .total {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.cart-footer .actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cart-footer .actions a,
+.cart-footer .actions button {
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cart-footer .back-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+.cart-footer .checkout-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cart-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cart-footer .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cart-footer .actions a,
+  .cart-footer .actions button {
+    width: 100%;
+  }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <h1>Your Shopping Cart</h1>
+
+  <table id="cart-table" style="display:none;">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="empty-cart" id="empty-cart">Your cart is currently empty.</div>
+
+<div class="cart-footer" id="cart-actions" style="display: none;">
+  <div class="total" id="cart-total">Total: 0 $</div>
+  <div class="actions">
+    <a href="shopping.html" class="back-btn">← Back to Shop</a>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const tbody = document.querySelector("#cart-table tbody");
+  const cartTotalEl = document.getElementById("cart-total");
+  const table = document.getElementById("cart-table");
+  const emptyCartMsg = document.getElementById("empty-cart");
+  const cartActions = document.getElementById("cart-actions");
+
+  function updateStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function renderCart() {
+    if (!Array.isArray(cart) || cart.length === 0) {
+      table.style.display = "none";
+      cartTotalEl.textContent = "";
+      emptyCartMsg.style.display = "block";
+      cartActions.style.display = "none";
+      return;
+    }
+
+    table.style.display = "table";
+    emptyCartMsg.style.display = "none";
+    cartActions.style.display = "flex";
+    tbody.innerHTML = "";
+
+    let total = 0;
+    cart.forEach((item, index) => {
+      const row = document.createElement("tr");
+
+      // Image cell
+      const imgCell = document.createElement("td");
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = item.name;
+      img.className = "product-image";
+      imgCell.appendChild(img);
+
+      // Name cell
+      const nameCell = document.createElement("td");
+      nameCell.textContent = item.name;
+
+      // Quantity cell with buttons
+      const qtyCell = document.createElement("td");
+      const minusBtn = document.createElement("button");
+      minusBtn.textContent = "−";
+      minusBtn.onclick = () => {
+        item.quantity--;
+        if (item.quantity <= 0) {
+          cart.splice(index, 1);
+        }
+        updateStorage();
+        renderCart();
+      };
+
+      const plusBtn = document.createElement("button");
+      plusBtn.textContent = "+";
+      plusBtn.onclick = () => {
+        item.quantity++;
+        updateStorage();
+        renderCart();
+      };
+
+      const qtySpan = document.createElement("span");
+      qtySpan.textContent = item.quantity;
+
+      const qtyWrapper = document.createElement("div");
+      qtyWrapper.className = "qty-controls";
+      qtyWrapper.appendChild(minusBtn);
+      qtyWrapper.appendChild(qtySpan);
+      qtyWrapper.appendChild(plusBtn);
+      qtyCell.appendChild(qtyWrapper);
+
+      // Price cell
+      const priceCell = document.createElement("td");
+      priceCell.textContent = item.price + " $";
+
+      // Total cell
+      const sumCell = document.createElement("td");
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      sumCell.textContent = itemTotal.toFixed(2) + " $";
+
+      // Append all to row
+      row.appendChild(imgCell);
+      row.appendChild(nameCell);
+      row.appendChild(qtyCell);
+      row.appendChild(priceCell);
+      row.appendChild(sumCell);
+
+      tbody.appendChild(row);
+    });
+
+    cartTotalEl.textContent = "Total: " + total.toFixed(2) + " $";
+  }
+
+  renderCart();
+</script>
+
+
+</body>
+</html>

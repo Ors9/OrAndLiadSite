@@ -1,37 +1,35 @@
 <!DOCTYPE html>
-<script src="scripts/shop.js" defer></script>
-<link rel="stylesheet" href="css/shop-style.css">
-<link rel="stylesheet" href="css/buttons-style.css">
-
 <html lang="en" style="font-size: 16px; direction: ltr;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>חנות</title>
+
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shop-style.css">
+  <link rel="stylesheet" href="css/buttons-style.css">
 
   <script src="scripts/include.js" defer></script>
+  <script src="scripts/shop.js" defer></script>
 </head>
 <body>
 
   <div data-include="header.html"></div>
 
+  <main>
+    <section class="cards-section">
+      <div class="category">
+        <h3 class="category-title">Fat dog</h3>
+        <div id="cakes-container" class="product-container"></div>
+      </div>
 
-  
-<section class="cards-section">
-  <div class="category">
-    <h3 class="category-title">Fat dog</h3>
-    <div id="cakes-container" class="product-container"></div>
-  </div>
+      <div class="category">
+        <h3 class="category-title">Dog</h3>
+        <div id="breads-container" class="product-container"></div>
+      </div>
+    </section>
+  </main>
 
-  <div class="category">
-    <h3 class="category-title">Dog</h3>
-    <div id="breads-container" class="product-container"></div>
-  </div>
-</section>
-
-</main>
-
-<div data-include="footer.html"></div>
+  <div data-include="footer.html"></div>
 </body>
 </html>
