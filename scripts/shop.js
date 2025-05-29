@@ -1,16 +1,25 @@
 // ✅ Update cart icon count
 function updateCartCount() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!Array.isArray(cart)) {
-    cart = [];
-  }
-
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   const countSpan = document.querySelector(".cart-count");
   if (countSpan) {
     countSpan.textContent = count;
+    countSpan.style.display = count > 0 ? "inline-block" : "none";
   }
 }
+
+// חכה עד שה־header נטען (כי נטען דינאמית דרך data-include)
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new MutationObserver(() => {
+    if (document.querySelector(".cart-count")) {
+      updateCartCount();
+      observer.disconnect(); // לא צריך להמשיך לעקוב
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
 
 // ✅ Add or update item in cart
 function updateCart(name, price, quantity, image, buttonElement) {
@@ -79,4 +88,14 @@ fetch('data/products.json')
 
     // ✅ After rendering products, update count
     updateCartCount();
+
+
+
   });
+
+
+// ✅ Always update count on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  loadProducts(); // רק איפה שיש מוצרים
+});
