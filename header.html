@@ -38,7 +38,7 @@
 
 
 header {
-  background-color: #333;
+  background-color: #000000; /
   color: white;
   padding: 20px;
   position: fixed;
@@ -114,15 +114,17 @@ header nav a.button.active {
 /* ✅ מצב מובייל: הלוגו למעלה, ניווט מתחת */
 @media (max-width: 600px) {
   .header-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 
   header nav {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 4px;
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   .button {
@@ -134,6 +136,10 @@ header nav a.button.active {
     .cart-count {
     font-size: 0.65rem;         /* ✅ גם לספירת הסל */
     padding: 1px 4px;
+  }
+
+  .logo-link {
+    margin-right: 12px; /* ✅ spacing between logo and buttons */
   }
 
   .logo-link img.logo {
