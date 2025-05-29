@@ -4,6 +4,9 @@ body {
   margin: 0;
   padding: 0;
 }
+main {
+  padding-top: 120px;
+}
 
 .cards-section {
   max-width: 1200px;
