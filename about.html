@@ -3,23 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
+  <title>About Us – PUPPERDISE</title>
   <link rel="stylesheet" href="css/style.css">
-  
   <script src="scripts/include.js" defer></script>
   <script src="scripts/shop.js" defer></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
 
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+      filter: grayscale(100%);
+    }
+
+    .core-values {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .core-values h3 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .core-values ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .core-values li {
+      margin: 12px 0;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    a.btn:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
 </head>
 <body>
 
   <div data-include="header.html"></div>
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <h2>About Us</h2>
-        <p>We’re a family-run business with a deep love for dogs. Every product is made with care and passion, ensuring quality and personal service in everything we offer.</p>
+    <section class="about-section">
+      <div class="about-text">
+        <h2>About PUPPERDISE</h2>
+        <p>PUPPERDISE is a modern, minimalist dog brand built on love, trust, and timeless style. We’re a family-run business where every decision is made with your pup’s happiness in mind.</p>
+        <p>We believe that simplicity is beautiful — and that your best friend deserves only the best: clean designs, honest service, and quality without compromise.</p>
       </div>
+      <div class="about-image">
+        <img src="images/about-dog.jpg" alt="Black and white photo of a happy dog">
+      </div>
+    </section>
+
+    <section class="core-values">
+      <h3>Our Values</h3>
+      <ul>
+        <li>🤍 Timeless, clean design for every dog lover</li>
+        <li>🌱 Simple, natural, and safe materials</li>
+        <li>📦 Fast, reliable, and personal service</li>
+        <li>🧠 Thoughtful content and tips for every pup parent</li>
+      </ul>
     </section>
   </main>
 
