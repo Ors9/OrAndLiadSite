@@ -100,12 +100,20 @@ fetch('/siteWithLiad/data/products.json')
         </div>
       `;
 
+            // ✅ לחץ על כל המוצר (חוץ מהכפתור) כדי לעבור לעמוד פרטים
+      item.addEventListener("click", (e) => {
+        if (e.target.closest("button")) return; // אל תעבור אם לחצו על כפתור
+        window.location.href = `product.html?id=${product.id}`;
+      });
+
       const button = document.createElement("button");
       button.className = "add-to-cart-button";
       button.textContent = "Add to Cart 🛒";
-      button.addEventListener("click", () => {
-        updateCart(product.name, product.price, 1, product.image, button);
-      });
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation(); // ❗ חשוב מאוד: מונע מעבר לדף המוצר
+      updateCart(product.name, product.price, 1, product.image, button);
+    });
 
       item.querySelector(".item-info").appendChild(button);
       container.appendChild(item);

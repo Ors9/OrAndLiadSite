@@ -62,7 +62,9 @@ main {
   border-radius: 10px;
   width: 280px;
   overflow: hidden;
-  
+  cursor: pointer;
+
+
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
