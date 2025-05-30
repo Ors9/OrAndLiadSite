@@ -5,6 +5,11 @@ function includeHTML() {
       .then(res => res.text())
       .then(html => {
         el.innerHTML = html;
+
+        // ✅ Run updateCartCount after header is included
+        if (file.includes("header")) {
+          setTimeout(updateCartCount, 0); // short delay ensures DOM is ready
+        }
       })
       .catch(err => {
         el.innerHTML = "<p style='color: red;'>Include failed</p>";
