@@ -3,11 +3,34 @@ function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   const countSpan = document.querySelector(".cart-count");
+  const cartIcon = document.querySelector(".cart-button .icon"); // more specific!
+
   if (countSpan) {
     countSpan.textContent = count;
     countSpan.style.display = count > 0 ? "inline-block" : "none";
+
+    if (count > 0) {
+      // 🔴 Make cart icon red (using CSS filter)
+      // "invert(17%) sepia(96%) saturate(7493%) hue-rotate(358deg) brightness(94%) contrast(114%)";
+      if (cartIcon) {
+        cartIcon.style.filter =
+          "#ffffff";
+        cartIcon.style.transition = "0.3s ease";
+      }
+
+      // 🔴 Make cart number text red countSpan.style.color = "#f00000";
+      countSpan.style.color = "#ffffff";
+    } else {
+      // ⚪ Reset to original (white)
+      if (cartIcon) {
+        cartIcon.style.filter = "brightness(0) invert(1)";
+      }
+
+      countSpan.style.color = "white";
+    }
   }
 }
+
 
 // חכה עד שה־header נטען (כי נטען דינאמית דרך data-include)
 document.addEventListener("DOMContentLoaded", () => {

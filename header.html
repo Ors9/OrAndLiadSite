@@ -102,6 +102,23 @@
     }
 
     @media (max-width: 600px) {
+
+      .button {
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* prevent vertical shift */
+      }
+
+      .icon-wrapper {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       .header-container {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -115,24 +132,25 @@
         margin-right: auto;
       }
 
-      .logo-link img.logo {
-        direction: ltr;
-        height: 65px;
-      }
+      .icon-wrapper img.icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
 
       .header-title {
-  order: 1;
-  flex: 1;
-  display: flex;
-  align-items: center;     /* מרכז אנכית */
-  justify-content: center; /* מרכז אופקית */
-  font-size: 1.3rem;
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-  user-select: none;
-}
+      order: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;     /* מרכז אנכית */
+      justify-content: center; /* מרכז אופקית */
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      user-select: none;
+    }
 
 
       header nav {
@@ -147,16 +165,17 @@
   
       }
 
-        .cart-count {
+      .cart-count {
         position: absolute;
-        top: 3px;
-        right: 11px;
+        top: 9px;
+        right: 6px;
+        transform: translate(30%, -30%);
         color: white;
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         font-weight: bold;
         border-radius: 50%;
-        padding: 5px 4px;
-        min-width:10px ;
+        padding: 2px 4px;
+        min-width: 14px;
         line-height: 1;
         text-align: center;
         z-index: 2;
@@ -169,6 +188,8 @@
 
       }
     }
+
+    
   </style>
 
   <div class="header-container">
