@@ -65,15 +65,17 @@
   } ,
 {
   "id": "p03",
-  "name": "Check extra image",
+  "name": "Check extra image (Name)",
   "price": 18,
   "image": "images/Toy.jpg",
   "category": "cakes",
-  "description": "check description inside product detail",
+  "description": "A dog toy is an object made for dogs to play with, chew on, or be mentally stimulated. It helps reduce boredom, releases energy, supports dental health, and strengthens the bond with the owner.\n\nCommon Types:\nChew toys – For dental health and chewing needs\n\nBalls/Frisbees – For fetch and active play\n\nTreat-dispensing toys – For mental stimulation\n\nSqueaky toys – Make sounds that excite dogs\n\nRope toys – Good for tug-of-war and teeth cleaning\n\nEach toy suits different dog sizes, breeds, and play styles.",
+  "note": "",
   "extraImages": [
     "images/Toy.jpg",
     "images/Toy.jpg",
     "images/Scot.jpg"
   ]
 }
+
 ]
