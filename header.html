@@ -9,7 +9,7 @@
       left: 0;
       right: 0;
       z-index: 999;
-      direction: rtl; /* שמור על כיוון כללי */
+      direction: ltr; /* שמור על כיוון כללי */
     }
 
     .header-container {
@@ -20,9 +20,9 @@
     }
 
     .logo-link {
-      margin-left: auto;
-      order: 2;
-    }
+  order: 0;              /* שמור את הלוגו בצד שמאל */
+  margin-right: auto;
+}
 
     .logo-link img.logo {
       height: 80px;
@@ -41,14 +41,14 @@
       order: 1;
     }
 
-    header nav {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 12px;
-      flex: 1;
-      order: 0;
-    }
+   header nav {
+  order: 1;
+  display: flex;
+  justify-content: center; /* מרכז אופקית את האייקונים */
+  align-items: center;
+  gap: 50px;
+  flex: 1;
+}
 
     .button {
       background-color: transparent;
@@ -59,7 +59,7 @@
     }
 
     .button img.icon {
-      height: 20px;
+      height: 35px;
       vertical-align: middle;
       filter: brightness(0) invert(1);
       transition: filter 0.3s ease, transform 0.3s ease;
@@ -70,18 +70,40 @@
       transform: scale(1.05);
     }
 
-    .cart-count {
-      background-color: #f00000;
-      color: white;
-      font-size: 0.75rem;
-      border-radius: 50%;
-      padding: 2px 6px;
-      margin-right: 4px;
-      vertical-align: top;
-    }
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}
+
+.icon-wrapper img.icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: #f00000;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  min-width: 18px;
+  line-height: 1;
+  text-align: center;
+  z-index: 2;
+}
+
+
 
     header nav a.button.active {
-      color: white;
+      color: black;
       border: 2px solid black;
     }
 
@@ -100,16 +122,23 @@
       }
 
       .logo-link img.logo {
-        direction: rtl;
+        direction: ltr;
         height: 65px;
       }
 
       .header-title {
-        order: 1;
-        flex: 1;
-        text-align: center;
-        font-size: 1.3rem;
-      }
+  order: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;     /* מרכז אנכית */
+  justify-content: center; /* מרכז אופקית */
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  user-select: none;
+}
+
 
       header nav {
         order: 2;
@@ -119,17 +148,18 @@
       }
 
       .button img.icon {
-        height: 16px;
+        height: 25px;
+  
       }
 
       .cart-count {
         font-size: 0.6rem;
         padding: 1px 4px;
-        margin-right: 2px;
       }
 
       .header-title {
         display: none; /* אם תרצה לבטל כותרת במובייל */
+        vertical-align: middle;
 
       }
     }
@@ -140,18 +170,23 @@
       <img src="images/Logo.png" alt="Logo" class="logo">
     </a>
 
-    <div class="header-title">PUPPERDISE</div>
+     <!--<a href="index.html" class="header-title">PUPPERDISE</a>-->
 
     <nav>
-      <a href="blog.html" class="button" title="Blog" aria-label="Blog">
-        <img src="images/blog.png" class="icon">
-      </a>
-      <a href="cart.html" class="button cart-button" title="Cart" aria-label="Cart">
-        <img src="images/shopping-cart.png" class="icon">
-        <span class="cart-count">0</span>
+      <a href="index.html" class="button" title="Home" aria-label="Home">
+        <img src="images/home.png" class="icon">
       </a>
       <a href="shopping.html" class="button" title="Shop" aria-label="Shop">
-        <img src="images/search.png" class="icon">
+        <img src="images/shopping-basket.png" class="icon">
+      </a>
+<a href="cart.html" class="button cart-button" title="Cart" aria-label="Cart">
+  <div class="icon-wrapper">
+    <img src="images/shopping-cart.png" class="icon">
+    <span class="cart-count">0</span>
+  </div>
+</a>
+      <a href="blog.html" class="button" title="Blog" aria-label="Blog">
+        <img src="images/blog.png" class="icon">
       </a>
     </nav>
   </div>
