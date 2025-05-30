@@ -31,6 +31,9 @@ function updateCartCount() {
 }
 
 
+
+
+
 // חכה עד שה־header נטען (כי נטען דינאמית דרך data-include)
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new MutationObserver(() => {
