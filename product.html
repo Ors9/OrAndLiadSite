@@ -113,25 +113,52 @@
   }
 
   @media (max-width: 768px) {
-    .product-details {
-      flex-direction: column;
-      padding: 20px;
-    }
-
-    .product-info h2 {
-      text-align: center;
-    }
-
-    .price,
-    .description,
-    .add-to-cart-button {
-      text-align: center;
-    }
-
-    .back-button {
-      text-align: center;
-    }
+  .main-img {
+    max-height: 250px;
   }
+
+  .product-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .add-to-cart-button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+    .product-info {
+    gap: 8px; /* מוסיף רווחים קטנים יותר בין אלמנטים */
+  }
+
+  .extra-images img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-details {
+    padding: 15px;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
 </style>
 
 </head>

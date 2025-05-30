@@ -39,13 +39,13 @@ function updateCart(name, price, quantity, image, buttonElement) {
   updateCartCount();
 
   if (buttonElement) {
-    buttonElement.textContent = "✓ נוסף לסל";
+    buttonElement.textContent = "✓ Added – Click to add more";
     buttonElement.disabled = true;
 
     setTimeout(() => {
-      buttonElement.textContent = "הוסף לסל 🛒";
+      buttonElement.textContent = "Add to Cart 🛒";
       buttonElement.disabled = false;
-    }, 2000);
+    }, 1000);
   }
 }
 
@@ -60,30 +60,37 @@ document.addEventListener("DOMContentLoaded", () => {
       const product = products.find(p => p.id === id);
       const container = document.getElementById("product-details");
 
+      console.log("extraImages:", product.extraImages);
+
       if (!product) {
-        container.innerHTML = "<p>המוצר לא נמצא.</p>";
+        container.innerHTML = "<p>Product not found.</p>";
         return;
       }
 
-      container.innerHTML = `
-        <h2>${product.name}</h2>
-        <img src="${product.image}" class="main-img" alt="${product.name}">
-        <p><strong>מחיר:</strong> ${product.price} ₪</p>
-        <p>${product.description || "אין תיאור זמין."}</p>
+container.innerHTML = `
+  <div class="image-gallery">
+    <img src="${product.image}" class="main-img" id="mainProductImage" alt="${product.name}">
+    <div class="extra-images">
+      ${(product.extraImages || []).map(img =>
+        `<img src="${img}" alt="תמונה נוספת" onclick="document.getElementById('mainProductImage').src='${img}'">`
+      ).join("")}
+    </div>
+  </div>
 
-        <button class="back-button" onclick="history.back()">⬅ חזרה</button>
-        <button class="add-to-cart-button" id="addToCartBtn">הוסף לסל 🛒</button>
+  <div class="product-info">
+    <h2>${product.name}</h2>
+    <span class="price">${product.price} $</span>
+<p class="description">${product.description || "No description available."}</p>
+<div class="button-group">
+  <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
+  <button class="add-to-cart-button" onclick="history.back()">← Back</button>
+</div>
+  </div>
+`;
 
-        <div class="extra-images">
-          ${product.extraImages ? product.extraImages.map(img =>
-            `<img src="${img}" alt="תמונה נוספת">`).join("") : ""}
-        </div>
-      `;
-
-      document.getElementById("addToCartBtn").addEventListener("click", () => {
-        updateCart(product.name, product.price, 1, product.image, document.getElementById("addToCartBtn"));
-      });
-
+document.getElementById("addToCartBtn").addEventListener("click", () => {
+  updateCart(product.name, product.price, 1, product.image, document.getElementById("addToCartBtn"));
+});
       updateCartCount();
     });
 });

@@ -16,14 +16,6 @@
     "note": ""
   },
   {
-    "id": "p03",
-    "name": "Fat toy",
-    "price": 18,
-    "image": "images/Toy.jpg",
-    "category": "cakes",
-    "note": ""
-  },
-  {
     "id": "p04",
     "name": "XXXX",
     "price": 35,
@@ -70,5 +62,18 @@
     "image": "images/Toy.jpg",
     "category": "cakes",
     "note": ""
-  }
+  } ,
+{
+  "id": "p03",
+  "name": "Check extra image",
+  "price": 18,
+  "image": "images/Toy.jpg",
+  "category": "cakes",
+  "description": "check description inside product detail",
+  "extraImages": [
+    "images/Toy.jpg",
+    "images/Toy.jpg",
+    "images/Scot.jpg"
+  ]
+}
 ]
