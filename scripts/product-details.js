@@ -84,7 +84,7 @@ container.innerHTML = `
 <p class="description">${product.description || "No description available."}</p>
 <div class="fixed-buttons">
   <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
-  <button class="add-to-cart-button" onclick="history.back()">← Back</button>
+  <button class="add-to-cart-button" onclick="history.back()">← Back to Shop</button>
 </div>
   </div>
 `;
