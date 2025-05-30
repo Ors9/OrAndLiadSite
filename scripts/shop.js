@@ -76,7 +76,7 @@ function updateCart(name, price, quantity, image, buttonElement) {
 }
 
 // ✅ Load products from JSON and display them
-fetch('data/products.json')
+fetch('/siteWithLiad/data/products.json')
   .then(response => response.json())
   .then(products => {
     products.forEach(product => {
@@ -122,5 +122,4 @@ fetch('data/products.json')
 // ✅ Always update count on page load
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
-  loadProducts(); // רק איפה שיש מוצרים
 });

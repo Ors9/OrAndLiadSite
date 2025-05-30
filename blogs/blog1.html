@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Bathe Your Dog the Right Way</title>
 
-  <link rel="stylesheet" href="blogs.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <script src="../scripts/include.js" defer></script>
-    <script src="../scripts/fixPathHeader.js" defer></script>
+  <!-- ✅ Absolute path to blog stylesheet -->
+  <link rel="stylesheet" href="/siteWithLiad/blogs/blogs.css">
 
+  <!-- ✅ Change to absolute path to avoid 404 inside nested folders -->
+  <link rel="stylesheet" href="/siteWithLiad/css/style.css">
 
-
-
+  <!-- ✅ Change script path to absolute -->
+  <script src="/siteWithLiad/scripts/include.js" defer></script>
+  <script src="/siteWithLiad/scripts/shop.js" defer></script>
 </head>
-<body>
 
-  <div data-include="../header.html"></div>
-  <script src="../scripts/shop.js" defer></script>
+<body>
+  <!-- ✅ These will load header/footer from the correct location -->
+  <div data-include="/siteWithLiad/header.html"></div>
 
   <main class="blog-content">
     <h1>🛁 How to Bathe Your Dog the Right Way</h1>
@@ -41,10 +42,9 @@
 
     <p>With the right tools and a little patience, bath time can be easy and even enjoyable!</p>
 
-    <a href="../blog.html" class="btn">← Back to Blog</a>
+    <a href="/siteWithLiad/blog.html" class="btn">← Back to Blog</a>
   </main>
 
-  <div data-include="../footer.html"></div>
-
+  <div data-include="/siteWithLiad/footer.html"></div>
 </body>
 </html>
