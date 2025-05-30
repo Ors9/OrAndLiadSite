@@ -81,7 +81,7 @@ container.innerHTML = `
     <h2>${product.name}</h2>
     <span class="price">${product.price} $</span>
 <p class="description">${product.description || "No description available."}</p>
-<div class="button-group">
+<div class="fixed-buttons">
   <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
   <button class="add-to-cart-button" onclick="history.back()">← Back</button>
 </div>
