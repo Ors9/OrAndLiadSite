@@ -1,8 +1,7 @@
 
-main {
-  padding-top: 130px;
+main.blog-content {
+  padding-top: 100px;
 }
-
 
 .blog-content {
   max-width: 800px;
@@ -45,10 +44,48 @@ main {
 }
 
 .blog-content a {
-  color: #ff9800;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .blog-content a:hover {
-  color: #e67e00;
+  color: #000000;
+}
+
+
+@media (max-width: 600px) {
+  .blog-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .blog-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .blog-content p,
+  .blog-content ul {
+    font-size: 1rem;
+  }
+}
+
+.blog-content .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.blog-content .btn:hover {
+  background-color: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
