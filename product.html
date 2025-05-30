@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <title>פרטי מוצר</title>
@@ -13,6 +13,12 @@
   <script src="scripts/include.js" defer></script>
   <script src="scripts/product-details.js" defer></script>
 <style>
+
+main {
+  padding-bottom: 80px; /* or more */
+}
+
+
   .product-details {
     display: flex;
     flex-wrap: wrap;
@@ -67,16 +73,27 @@
 
   .product-info h2 {
     font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #111;
   }
 
   .price {
     font-size: 1.4rem;
     font-weight: bold;
-    margin: 15px 0;
+    margin: 5px 0;
     color: #111;
   }
+
+.description-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #ccc; /* קו תחתון */
+  padding-bottom: 4px;           /* מרווח בין הטקסט לקו */
+
+}
 
   .description {
     font-size: 1.2rem;
@@ -115,15 +132,21 @@
   @media (max-width: 768px) {
   .main-img {
     max-height: 250px;
+    margin: 0 0 0px 0;
   }
 
-  .product-info h2 {
-    font-size: 1.4rem;
-  }
+.product-info h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0px 0; /* remove top, tighten bottom */
+  color: #111;
+}
 
-  .price {
-    font-size: 1.2rem;
-  }
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0 0px 0; /* only bottom margin */
+  color: #111;
+}
 
   .description {
     font-size: 0.95rem;
@@ -140,6 +163,7 @@
   .extra-images img {
     width: 60px;
     height: 60px;
+    margin: 0 0 0px 0;
   }
 
 

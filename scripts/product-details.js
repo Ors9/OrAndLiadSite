@@ -80,6 +80,7 @@ container.innerHTML = `
   <div class="product-info">
     <h2>${product.name}</h2>
     <span class="price">${product.price} $</span>
+<h3 class="description-title">Product Description</h3>
 <p class="description">${product.description || "No description available."}</p>
 <div class="fixed-buttons">
   <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
