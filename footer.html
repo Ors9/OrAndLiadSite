@@ -11,13 +11,26 @@
      
     }
 
-    .footer-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff; /* #ff9800 the looking good orange*/
-      margin-bottom: 10px;
-      display: inline-block;
-    }
+  .footer-logo img.paw-icon {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  display: flex;         /* כדי ליישר את התמונה והטקסט בשורה */
+  align-items: center;   /* מרכז אנכי */
+  justify-content: center;
+  gap: 8px;              /* רווח בין התמונה לטקסט */
+}
+
+.paw-icon {
+  height: 24px;
+}
 
 .footer-links {
   display: flex;
@@ -49,9 +62,34 @@
       color: #bbb;
       margin-top: 10px;
     }
+
+    .footer-social {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-social img.social-icon {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1); /* הופך לשחור-לבן */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-social img.social-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(0.8) invert(0); /* גוון הפוך בהובר */
+}
+
+
+
   </style>
 
-  <div class="footer-logo">🐾 PUPPERDISE</div>
+<div class="footer-logo">
+  <img src="images/paws.png" alt="Paw Logo" class="paw-icon">
+  PUPPERDISE
+</div>
 
   <div class="footer-links">
     <a href="index.html">Home</a>
@@ -59,6 +97,20 @@
     <a href="terms.html">Terms</a>
     <a href="contact.html">Contact</a>
   </div>
+
+  
+  <div class="footer-social">
+  <a href="https://www.tiktok.com/@yourusername" target="_blank" aria-label="TikTok">
+    <img src="images/tik-tok.png" alt="TikTok" class="social-icon">
+  </a>
+  <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
+    <img src="images/instagram.png" alt="Instagram" class="social-icon">
+  </a>
+<a href="https://www.facebook.com/yourpage" target="_blank" aria-label="Facebook">
+  <img src="images/facebook.png" alt="Facebook" class="social-icon">
+</a>
+</div>
+
 
   <div class="footer-note">
     &copy; 2025 PUPPERDISE. All rights reserved.
