@@ -77,7 +77,7 @@ function categoryToTitle(categoryId) {
     DogsBeds: "Beds & Blankets",
     DogsGadget: "Dog Gadgets",
     DogsFashion: "Clothing & Accessories",
-    DogsTravel: "Travel & Transport Products"
+    DogsTravel: "Travel & Transport Products" 
   };
   return map[categoryId] || categoryId;
 }
