@@ -4,7 +4,7 @@
     "name": "XXXX",
     "price": 35,
     "image": "images/Toy.jpg",
-    "category": "cakes",
+    "category": "DogsToys",
     "note": ""
   },
   {
@@ -12,7 +12,7 @@
     "name": "XXXXX",
     "price": 12,
     "image": "images/Toy.jpg",
-    "category": "breads",
+    "category": "DogsToys",
     "note": ""
   },
   {
@@ -20,7 +20,7 @@
     "name": "XXXX",
     "price": 35,
     "image": "images/Toy.jpg",
-    "category": "cakes",
+    "category": "DogsToys",
     "note": ""
   },
   {
@@ -28,7 +28,7 @@
     "name": "XXXXX",
     "price": 12,
     "image": "images/Toy.jpg",
-    "category": "breads",
+    "category": "DogsToys",
     "note": ""
   },
   {
@@ -36,7 +36,7 @@
     "name": "Fat toy",
     "price": 18,
     "image": "images/Toy.jpg",
-    "category": "cakes",
+    "category": "DogsToys",
     "note": ""
   },
   {
@@ -44,7 +44,7 @@
     "name": "XXXX",
     "price": 35,
     "image": "images/Toy.jpg",
-    "category": "cakes",
+    "category": "DogsGadget",
     "note": ""
   },
   {
@@ -52,7 +52,7 @@
     "name": "XXXXX",
     "price": 12,
     "image": "images/Toy.jpg",
-    "category": "breads",
+    "category": "DogsGadget",
     "note": ""
   },
   {
@@ -60,7 +60,7 @@
     "name": "Fat toy",
     "price": 18,
     "image": "images/Toy.jpg",
-    "category": "cakes",
+    "category": "DogsGadget",
     "note": ""
   } ,
 {
@@ -68,7 +68,7 @@
   "name": "Mega fat dog",
   "price": 18,
   "image": "images/Toy.jpg",
-  "category": "cakes",
+  "category": "DogsGadget",
   "description": "A dog toy is an object made for dogs to play with, chew on, or be mentally stimulated. It helps reduce boredom, releases energy, supports dental health, and strengthens the bond with the owner.\n\nCommon Types:\nChew toys – For dental health and chewing needs\n\nBalls/Frisbees – For fetch and active play\n\nTreat-dispensing toys – For mental stimulation\n\nSqueaky toys – Make sounds that excite dogs\n\nRope toys – Good for tug-of-war and teeth cleaning\n\nEach toy suits different dog sizes, breeds, and play styles.",
   "note": "",
   "extraImages": [

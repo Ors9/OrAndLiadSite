@@ -80,7 +80,7 @@ fetch('/siteWithLiad/data/products.json')
   .then(response => response.json())
   .then(products => {
     products.forEach(product => {
-      const container = document.getElementById(`${product.category}-container`);
+      const container = document.getElementById(product.category);
       if (!container) return;
 
       const noteHtml = product.note
