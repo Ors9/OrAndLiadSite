@@ -73,32 +73,37 @@ main {
 
 .product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Default for larger screens */
   gap: 30px;
   padding: 10px;
-  
 }
-
 
 @media (max-width: 600px) {
   .product-container {
-    justify-content: center;
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr); /* בדיוק 2 בכל שורה */
+    gap: 16px;
+    padding: 10px;
+  }
+
+  .menu-item {
+    width: 100%;        /* הכרטיס ממלא את העמודה שלו */
+    max-width: unset;   /* ביטול מגבלה */
+  }
+
+  .item-row img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
 
 .menu-item {
-  text-align: center;
   background-color: white;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
-  width: 280px;
   overflow: hidden;
   cursor: pointer;
-
-
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
