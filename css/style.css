@@ -73,26 +73,6 @@ body {
 }
 
 
-@media (max-width: 768px) {
-  .cards {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-
-  .card {
-    flex: 0 0 auto;
-    width: 250px;
-  }
-
-    .card:first-child {
-    margin-left: 20px;
-  }
-
-  .card:last-child {
-    margin-right: 20px;
-  }
-}
-
 .card:hover {
   transform: translateY(-5px);
 }
@@ -100,5 +80,3 @@ body {
   color: #000000;
   margin-bottom: 10px;
 }
-
-
