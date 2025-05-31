@@ -38,15 +38,7 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-  if (buttonElement) {
-    buttonElement.textContent = "✓ Added – Click to add more";
-    buttonElement.disabled = true;
-
-    setTimeout(() => {
-      buttonElement.textContent = "Add to Cart 🛒";
-      buttonElement.disabled = false;
-    }, 1000);
-  }
+  // Removed button text feedback and disable
 }
 
 // Main
