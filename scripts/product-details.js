@@ -14,13 +14,9 @@ function updateCartCount() {
   if (countSpan) {
     countSpan.textContent = count;
     countSpan.style.display = count > 0 ? "inline-block" : "none";
-    countSpan.style.color = count > 0 ? "#f00000" : "white";
 
-    if (cartIcon) {
-      cartIcon.style.filter = count > 0
-        ? "invert(17%) sepia(96%) saturate(7493%) hue-rotate(358deg) brightness(94%) contrast(114%)"
-        : "brightness(0) invert(1)";
-    }
+
+
   }
 }
 
