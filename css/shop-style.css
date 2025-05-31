@@ -179,7 +179,7 @@ main {
   word-wrap: break-word;      /* שוברת מילה ארוכה אם צריך */
   line-height: 1.6;           /* ריווח נעים בין שורות */
   font-size: 1rem;
-  color: #333;
+  color: #000000;
   margin-top: 10px;
   line-break: anywhere;
 }

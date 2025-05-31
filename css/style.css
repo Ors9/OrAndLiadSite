@@ -17,13 +17,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
-  color: #333;
+  color: #000000;
   line-height: 1.6;
 }
 
 /* Hero section */
 .hero {
-  background: linear-gradient(to right, #969595, #333);
+  background: linear-gradient(to right, #969595, #000000);
   color: white;
   text-align: center;
   padding: 20px 0;         /* במקום רווחים ענקיים */
@@ -44,7 +44,7 @@ body {
   margin-top: 20px;
   padding: 12px 24px;
   background-color: #ffffff;
-  color: #333;
+  color: #000000;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
