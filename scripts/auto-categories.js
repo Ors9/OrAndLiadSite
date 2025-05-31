@@ -65,6 +65,26 @@ fetch("data/products.json")
     });
 
     updateCartCount();
+
+    // ✅ גלילה חלקה לפי מיקום האלמנט ומרחק מההדר
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        // חכה קצת לוודא שהכל נטען לגמרי
+        setTimeout(() => {
+          const headerOffset = 300; // שנה לפי גובה ההדר שלך
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }, 100); // 100ms בד"כ מספיק
+      }
+    }
+
   });
 
 function categoryToTitle(categoryId) {

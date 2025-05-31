@@ -1,32 +1,56 @@
 [
   {
-    "title": "Grooming & Care",
+    "id": "DogsToys",
+    "title": "Dog Toys",
     "image": "images/Toy.jpg",
-    "text": "Shampoos, brushes, colognes and more — because your dog deserves to feel fresh and loved."
+    "text": "Playful, durable toys to keep your dog happy and active."
   },
   {
-    "title": "Nutrition & Wellness",
+    "id": "DogsTreats",
+    "title": "Treats & Snacks",
     "image": "images/Toy.jpg",
-    "text": "Healthy food, tasty treats, and essential supplements for a happy, active life."
+    "text": "Tasty rewards and daily snacks your dog will love."
   },
   {
-    "title": "Accessories & Toys",
-    "image": "images/Scot.jpg",
-    "text": ""
+    "id": "DogsCare",
+    "title": "Grooming & Hygiene",
+    "image": "images/Toy.jpg",
+    "text": "Brushes, shampoos and everything your dog needs to feel fresh."
   },
   {
-    "title": "Our Story",
-    "image": "images/Scot.jpg",
-    "text": ""
+    "id": "DogFood",
+    "title": "Dry & Wet Food",
+    "image": "images/Toy.jpg",
+    "text": "Nutritious meals for every stage of your dog’s life."
   },
   {
-    "title": "Tips & Guides",
-    "image": "images/Scot.jpg",
-    "text": ""
+    "id": "DogsWalk",
+    "title": "Walking & Outdoor Gear",
+    "image": "images/Toy.jpg",
+    "text": "Leashes, harnesses, and gear for every adventure together."
   },
   {
-    "title": "Contact Us",
-    "image": "images/Scot.jpg",
-    "text": ""
+    "id": "DogsBeds",
+    "title": "Beds & Blankets",
+    "image": "images/Toy.jpg",
+    "text": "Cozy beds and soft blankets for the ultimate dog nap."
+  },
+  {
+    "id": "DogsGadget",
+    "title": "Dog Gadgets",
+    "image": "images/Toy.jpg",
+    "text": "Tech toys and helpful gadgets for modern dog parenting."
+  },
+  {
+    "id": "DogsFashion",
+    "title": "Clothing & Accessories",
+    "image": "images/Toy.jpg",
+    "text": "Stylish outfits and fun accessories for your pup’s wardrobe."
+  },
+  {
+    "id": "DogsTravel",
+    "title": "Travel & Transport Products",
+    "image": "images/Toy.jpg",
+    "text": "Carriers, seats and essentials for smooth travel with your dog."
   }
 ]
