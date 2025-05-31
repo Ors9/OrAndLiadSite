@@ -83,6 +83,14 @@ body {
     flex: 0 0 auto;
     width: 250px;
   }
+
+    .card:first-child {
+    margin-left: 20px;
+  }
+
+  .card:last-child {
+    margin-right: 20px;
+  }
 }
 
 .card:hover {
@@ -92,3 +100,5 @@ body {
   color: #000000;
   margin-bottom: 10px;
 }
+
+
