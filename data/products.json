@@ -1,79 +1,145 @@
 [
   {
     "id": "p01",
-    "name": "XXXX",
+    "name": "Classic Chew Bone",
     "price": 35,
     "image": "images/Toy.jpg",
-    "category": "DogsToys",
-    "note": ""
+    "category": "DogsToys"
   },
   {
     "id": "p02",
-    "name": "XXXXX",
+    "name": "Mini Ball Toy",
     "price": 12,
-    "image": "images/Toy.jpg",
-    "category": "DogsToys",
-    "note": ""
+    "image": "images/Scot.jpg",
+    "category": "DogsToys"
   },
   {
-  "id": "p03",
-  "name": "Mega fat dog",
-  "price": 18,
-  "oldPrice": 24,
-  "tags": ["New", "Best Seller"],
-  "image": "images/Toy.jpg",
-  "extraImages": ["images/Toy.jpg", "images/Scot.jpg"],
-  "category": "DogsGadget",
-  "description": "A great toy for energetic dogs.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "note": "BLA BLA BLA"
-},
+    "id": "p03",
+    "name": "Mega Fat Dog",
+    "price": 18,
+    "oldPrice": 24,
+    "image": "images/Toy.jpg",
+    "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
+    "category": "DogsGadget",
+    "description": "Great for energetic dogs. Helps reduce stress and promotes activity."
+  },
   {
     "id": "p04",
-    "name": "XXXX",
-    "price": 35,
+    "name": "Interactive Tug Rope",
+    "price": 29,
     "image": "images/Toy.jpg",
-    "category": "DogsToys",
-    "note": ""
+    "category": "DogsToys"
   },
   {
     "id": "p05",
-    "name": "XXXXX",
-    "price": 12,
-    "image": "images/Toy.jpg",
-    "category": "DogsToys",
-    "note": ""
+    "name": "Soft Squeaky Plush",
+    "price": 19,
+    "image": "images/Scot.jpg",
+    "category": "DogsToys"
   },
   {
     "id": "p06",
-    "name": "Fat toy",
-    "price": 18,
+    "name": "Premium Dog Treats - Chicken",
+    "price": 22,
     "image": "images/Toy.jpg",
-    "category": "DogsToys",
-    "note": ""
+    "category": "DogsTreats"
   },
   {
     "id": "p07",
-    "name": "XXXX",
-    "price": 35,
+    "name": "Beef Jerky Snacks",
+    "price": 18,
     "image": "images/Toy.jpg",
-    "category": "DogsGadget",
-    "note": ""
+    "category": "DogsTreats"
   },
   {
     "id": "p08",
-    "name": "XXXXX",
-    "price": 12,
+    "name": "Organic Dog Shampoo",
+    "price": 30,
     "image": "images/Toy.jpg",
-    "category": "DogsGadget",
-    "note": ""
+    "category": "DogsCare"
   },
   {
     "id": "p09",
-    "name": "Fat toy",
-    "price": 18,
+    "name": "Fur Brush - Anti-Shedding",
+    "price": 28,
     "image": "images/Toy.jpg",
-    "category": "DogsGadget",
-    "note": ""
-  } 
-
+    "category": "DogsCare"
+  },
+  {
+    "id": "p10",
+    "name": "Dry Food - Adult Dogs 3kg",
+    "price": 79,
+    "image": "images/Toy.jpg",
+    "category": "DogFood"
+  },
+  {
+    "id": "p11",
+    "name": "Wet Food Variety Pack",
+    "price": 45,
+    "image": "images/Toy.jpg",
+    "category": "DogFood"
+  },
+  {
+    "id": "p12",
+    "name": "Reflective Walking Harness",
+    "price": 42,
+    "image": "images/Toy.jpg",
+    "category": "DogsWalk"
+  },
+  {
+    "id": "p13",
+    "name": "Durable Leash - 1.5m",
+    "price": 32,
+    "image": "images/Toy.jpg",
+    "category": "DogsWalk"
+  },
+  {
+    "id": "p14",
+    "name": "Orthopedic Dog Bed - Medium",
+    "price": 110,
+    "image": "images/Toy.jpg",
+    "category": "DogsBeds"
+  },
+  {
+    "id": "p15",
+    "name": "Cozy Blanket for Crates",
+    "price": 25,
+    "image": "images/Toy.jpg",
+    "category": "DogsBeds"
+  },
+  {
+    "id": "p16",
+    "name": "Automatic Ball Launcher",
+    "price": 189,
+    "image": "images/Toy.jpg",
+    "category": "DogsGadget"
+  },
+  {
+    "id": "p17",
+    "name": "Water Bottle for Walks",
+    "price": 35,
+    "image": "images/Toy.jpg",
+    "category": "DogsGadget"
+  },
+  {
+    "id": "p18",
+    "name": "Raincoat - Small Dogs",
+    "price": 55,
+    "image": "images/Toy.jpg",
+    "category": "DogsFashion"
+  },
+  {
+    "id": "p19",
+    "name": "Bandana Set (3-pack)",
+    "price": 20,
+    "image": "images/Toy.jpg",
+    "category": "DogsFashion"
+  },
+  {
+    "id": "p20",
+    "name": "Dog Travel Crate - Airline Approved",
+    "price": 220,
+    "image": "images/Toy.jpg",
+    "category": "DogsTravel"
+  }
 ]
