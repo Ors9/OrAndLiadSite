@@ -71,6 +71,20 @@ body {
   text-align: center;
   transition: transform 0.3s ease;
 }
+
+
+@media (max-width: 768px) {
+  .cards {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .card {
+    flex: 0 0 auto;
+    width: 250px;
+  }
+}
+
 .card:hover {
   transform: translateY(-5px);
 }
