@@ -78,6 +78,27 @@ main {
   padding: 10px;
 }
 
+.add-to-cart-button {
+  display: inline-block;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 10px 20px;
+  margin: 6px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.add-to-cart-button:hover {
+  background-color: black;
+  color: white;
+}
+
+
 @media (max-width: 600px) {
   .product-container {
     grid-template-columns: repeat(2, 1fr); /* בדיוק 2 בכל שורה */
@@ -94,6 +115,18 @@ main {
     width: 100%;
     height: auto;
     object-fit: contain;
+  }
+
+    .add-to-cart-button {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    margin: 2px;
+  }
+
+  header nav {
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 }
 
@@ -115,8 +148,10 @@ main {
 .item-row {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 16px;
+  height: 100%;
 }
 
 .item-row img {
