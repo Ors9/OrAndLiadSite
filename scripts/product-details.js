@@ -79,15 +79,28 @@ container.innerHTML = `
 
   <div class="product-info">
     <h2>${product.name}</h2>
-    <span class="price">${product.price} $</span>
-<h3 class="description-title">Product Description</h3>
-<p class="description">${product.description || "No description available."}</p>
-<div class="fixed-buttons">
-  <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
-  <button class="add-to-cart-button" onclick="history.back()">← Back to Shop</button>
-</div>
+
+    ${product.oldPrice && product.oldPrice > product.price
+      ? `<div class="price-wrapper">
+          <span class="price old-price">${product.oldPrice} $</span>
+          <span class="price">${product.price} $</span>
+         </div>`
+      : `<span class="price">${product.price} $</span>`}
+
+    ${product.tags ? `<div class="tags">
+        ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+    </div>` : ""}
+
+    <h3 class="description-title">Product Description</h3>
+    <p class="description">${product.description || "No description available."}</p>
+
+    <div class="fixed-buttons">
+      <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
+      <button class="add-to-cart-button" onclick="history.back()">← Back to Shop</button>
+    </div>
   </div>
 `;
+
 
 document.getElementById("addToCartBtn").addEventListener("click", () => {
   updateCart(product.name, product.price, 1, product.image, document.getElementById("addToCartBtn"));

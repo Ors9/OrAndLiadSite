@@ -16,6 +16,18 @@
     "note": ""
   },
   {
+  "id": "p03",
+  "name": "Mega fat dog",
+  "price": 18,
+  "oldPrice": 24,
+  "tags": ["New", "Best Seller"],
+  "image": "images/Toy.jpg",
+  "extraImages": ["images/Toy.jpg", "images/Scot.jpg"],
+  "category": "DogsGadget",
+  "description": "A great toy for energetic dogs.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "note": "BLA BLA BLA"
+},
+  {
     "id": "p04",
     "name": "XXXX",
     "price": 35,
@@ -62,20 +74,6 @@
     "image": "images/Toy.jpg",
     "category": "DogsGadget",
     "note": ""
-  } ,
-{
-  "id": "p03",
-  "name": "Mega fat dog",
-  "price": 18,
-  "image": "images/Toy.jpg",
-  "category": "DogsGadget",
-  "description": "A dog toy is an object made for dogs to play with, chew on, or be mentally stimulated. It helps reduce boredom, releases energy, supports dental health, and strengthens the bond with the owner.\n\nCommon Types:\nChew toys – For dental health and chewing needs\n\nBalls/Frisbees – For fetch and active play\n\nTreat-dispensing toys – For mental stimulation\n\nSqueaky toys – Make sounds that excite dogs\n\nRope toys – Good for tug-of-war and teeth cleaning\n\nEach toy suits different dog sizes, breeds, and play styles.",
-  "note": "",
-  "extraImages": [
-    "images/Toy.jpg",
-    "images/Toy.jpg",
-    "images/Scot.jpg"
-  ]
-}
+  } 
 
 ]

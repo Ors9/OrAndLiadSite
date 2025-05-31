@@ -38,6 +38,38 @@ main {
   border-bottom: 2px solid #e0e0e0;
 }
 
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 0.9em;
+}
+
+
+
+.tag {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  margin: 5px 5px 0 0;
+  border-radius: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+
+
 .product-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -130,3 +162,29 @@ main {
 .quantity-controls button:hover {
   background-color: #444;
 }
+
+
+.description {
+  white-space: normal;        /* חשוב: מאפשר שבירת שורות */
+  word-wrap: break-word;      /* שוברת מילה ארוכה אם צריך */
+  line-height: 1.6;           /* ריווח נעים בין שורות */
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+  line-break: anywhere;
+}
+
+.product-info {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  
+}
+
+
+
+
