@@ -8,7 +8,10 @@ function includeHTML() {
 
         // ✅ Run updateCartCount after header is included
         if (file.includes("header")) {
-          setTimeout(updateCartCount, 0); // short delay ensures DOM is ready
+          setTimeout(() => {
+            updateCartCount();
+            startCarousel();
+          }, 0);
         }
       })
       .catch(err => {
@@ -34,3 +37,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(document.body, { childList: true, subtree: true });
 });
+
+
+function startCarousel() {
+  const span = document.getElementById("carousel-message");
+  if (!span) return;
+
+  // מניעת הרצה כפולה
+  if (span.dataset.carouselStarted) return;
+  span.dataset.carouselStarted = "true";
+
+  const messages = [
+    "🚚 Free Shipping on Orders Over $50",
+    "📦 Delivery in 3–7 Business Days",
+    "🐶 Pupper-Approved Quality",
+    "🔁 Easy Returns & Refunds",
+    "💳 Secure Checkout with All Cards"
+  ];
+
+  let index = 0;
+
+  setInterval(() => {
+    span.style.opacity = 0;
+    setTimeout(() => {
+      index = (index + 1) % messages.length;
+      span.textContent = messages[index];
+      span.style.opacity = 1;
+    }, 400);
+  }, 4000);
+}

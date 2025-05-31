@@ -28,6 +28,37 @@
   vertical-align: middle;
 }
 
+.qty-controls button {
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.qty-controls button:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.qty-controls span {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 8px;
+  min-width: 24px;
+  display: inline-block;
+  text-align: center;
+  color: black;
+}
+
+
 /* מצב מובייל */
 @media (max-width: 600px) {
   .header-container {
@@ -42,9 +73,20 @@
   }
 
   .cart-header h1 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 0;
     text-align: start;
+  }
+
+  .qty-controls button {
+    width: 18px;
+    height: 18px;
+    font-size: 1rem;
+  }
+
+  .qty-controls span {
+    font-size: 0.7rem;
+    padding: 0 2px;
   }
 }
 
