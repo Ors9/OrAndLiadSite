@@ -33,6 +33,19 @@
       border-radius: 8px;
       text-decoration: none;
     }
+
+    .hero h2 {
+      font-size: clamp(1.2rem, 5vw, 2rem);
+    }
+
+    .hero {
+      padding: 20px 0;         /* במקום רווחים ענקיים */
+      margin: 0;
+    }
+
+    
+
+
   </style>
 </head>
 
@@ -43,12 +56,24 @@
   
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Welcome to the PUPPERDISE Blog 🐾</h2>
-        <p>Your go-to spot for expert tips, dog care stories, training advice, and more!</p>
-      </div>
-    </section>
+<section class="hero">
+  <div class="container">
+    <h2>
+      PUPPERDISE Blog
+      <img src="images/paws.png" alt="paws" style="
+        height: 1em;
+        vertical-align: middle;
+        margin-left: 5px;
+        filter: brightness(0) invert(1);
+      ">
+    </h2>
+
+    <p style="font-size: 0.8rem; color: #000000; margin-top: 20px;">
+      Disclaimer: The content on this blog is for informational purposes only and does not replace professional veterinary or training advice. Always consult with a certified expert before making decisions about your dog's health or behavior.
+    </p>
+  </div>
+</section>
+
 
     <section class="cards blog-posts">
       <div class="card">
