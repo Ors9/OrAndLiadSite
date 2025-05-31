@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ✅ Add or update item in cart
+// ✅ Add or update item in cart
 function updateCart(name, price, quantity, image, buttonElement) {
   let cart = JSON.parse(localStorage.getItem("cart"));
   if (!Array.isArray(cart)) {
@@ -63,16 +64,7 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-  // ✅ Button feedback
-  if (buttonElement) {
-    buttonElement.textContent = "✓ Added – Click to add more";
-    buttonElement.disabled = true;
-
-    setTimeout(() => {
-      buttonElement.textContent = "Add to Cart 🛒";
-      buttonElement.disabled = false;
-    }, 2000);
-  }
+  // ✅ Button feedback removed — button stays the same
 }
 
 // ✅ Load products from JSON and display them
