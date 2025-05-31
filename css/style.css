@@ -80,3 +80,18 @@ body {
   color: #000000;
   margin-bottom: 10px;
 }
+
+
+@media (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%; /* חשוב כדי שיתאים לעמודה */
+    padding: 20px 10px;
+  }
+}
