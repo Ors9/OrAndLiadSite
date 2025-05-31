@@ -83,22 +83,28 @@ fetch('/siteWithLiad/data/products.json')
       const container = document.getElementById(product.category);
       if (!container) return;
 
-      const noteHtml = product.note
-        ? `<span style="color: #006400; font-weight: bold; background-color: #eaffea; padding: 2px 6px; border-radius: 5px; display: inline-block; margin-top: 4px;">${product.note}</span>`
-        : "";
+  
 
-      const item = document.createElement("div");
-      item.className = "menu-item";
-      item.innerHTML = `
-        <strong>${product.name}</strong>
-        <div class="item-row">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="item-info">
-            <span class="price">${product.price} $</span>
-            ${noteHtml}
-          </div>
-        </div>
-      `;
+const item = document.createElement("div");
+item.className = "menu-item";
+
+const oldPriceHtml = product.oldPrice && product.oldPrice > product.price
+  ? `<span class="old-price">${product.oldPrice} $</span>`
+  : "";
+
+item.innerHTML = `
+  <div class="item-row">
+    <img src="${product.image}" alt="${product.name}">
+    <div class="item-info">
+      <h4 class="product-name">${product.name}</h4>
+      <div class="price-wrapper">
+        ${oldPriceHtml}
+        <span class="price">${product.price} $</span>
+      </div>
+    </div>
+  </div>
+`;
+
 
             // ✅ לחץ על כל המוצר (חוץ מהכפתור) כדי לעבור לעמוד פרטים
       item.addEventListener("click", (e) => {
