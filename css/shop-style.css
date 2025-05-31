@@ -42,7 +42,6 @@ main {
 .price-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ זה מה שמיישר לאמצע */
   gap: 10px;
 }
 
