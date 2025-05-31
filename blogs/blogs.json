@@ -1,0 +1,32 @@
+[
+  {
+    "title": "🛁 How to Bathe Your Dog the Right Way",
+    "description": "Learn how often to bathe, which shampoos to use, and tips for a stress-free wash day.",
+    "link": "blogs/blog1.html"
+  },
+  {
+    "title": "🍖 5 Superfoods Your Dog Will Love",
+    "description": "Boost your pup’s health with tasty, nutritious snacks you probably already have at home.",
+    "link": "blogs/blog2.html"
+  },
+  {
+    "title": "🐶 Puppy Training 101",
+    "description": "Housebreaking, basic commands, and socialization — the essentials for happy pups.",
+    "link": "blogs/blog3.html"
+  },
+  {
+    "title": "🏠 Creating the Perfect Dog-Friendly Home",
+    "description": "Simple home upgrades that make life better for you and your best friend.",
+    "link": "blogs/blog4.html"
+  },
+  {
+    "title": "🚶 Daily Walks: How Long is Enough?",
+    "description": "Understand your dog’s exercise needs and how to make walks more engaging.",
+    "link": "blogs/blog5.html"
+  },
+  {
+    "title": "✈️ Traveling with Your Dog",
+    "description": "Tips for road trips, flights, and hotel stays with your furry companion.",
+    "link": "blogs/blog6.html"
+  }
+]
