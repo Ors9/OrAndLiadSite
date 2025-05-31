@@ -1,17 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 16px; direction: ltr;">
+<html lang="en" style="font-size: 16px; direction: ltr;   font-family: 'Heebo', sans-serif;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="blogs/blogs.css">
-  <link rel="stylesheet" href="css/style.css">
+  
   <script src="scripts/include.js" defer></script>
   <script src="scripts/shop.js" defer></script>
 
 
 
   <style>
+
+main {
+  padding-top: 80px; /* או יותר לפי גובה ההדר שלך */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    .hero h2 {
+  color: white;
+}
+
+.hero {
+  background: linear-gradient(to right, #8e8e8e, #000);
+  color: white;
+  text-align: center;
+  padding: 2px
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  padding-top: 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.hero h2 img {
+  height: 1.2em;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+
+.hero-subtext {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  line-height: 1;
+  margin: 20px auto;
+  max-width: 750px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hero-btn {
+  margin-top: 25px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 25px;
+  padding: 12px 28px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.hero-btn:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
     .cards.blog-posts .card {
       background-color: #fff;
       border-radius: 12px;
@@ -27,7 +98,7 @@
     .cards.blog-posts .card .btn {
       display: inline-block;
       margin-top: 10px;
-      background-color: #333; /* use #ff9800 for orange style */
+      background-color: #000000; /* use #ff9800 for orange style */
       color: white;
       padding: 8px 16px;
       border-radius: 8px;
@@ -38,10 +109,14 @@
       font-size: clamp(1.2rem, 5vw, 2rem);
     }
 
-    .hero {
-      padding: 20px 0;         /* במקום רווחים ענקיים */
-      margin: 0;
-    }
+.hero {
+  width: 100vw; /* תופס את כל רוחב המסך */
+  background: linear-gradient(to right, #969595, #000000);
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
 
     
 
@@ -55,25 +130,23 @@
 
   
 
-  <main>
-<section class="hero">
-  <div class="container">
-    <h2>
-      PUPPERDISE Blog
-      <img src="images/paws.png" alt="paws" style="
-        height: 1em;
-        vertical-align: middle;
-        margin-left: 5px;
-        filter: brightness(0) invert(1);
-      ">
-    </h2>
+<main>
+  <section class="hero">
+    <div class="container">
+      <h2>
+        PUPPERDISE Blog
+        <img src="images/paws.png" alt="paws">
+      </h2>
 
-    <p style="font-size: 0.8rem; color: #ffffff; margin-top: 20px;">
-      Disclaimer: The content on this blog is for informational purposes only and does not replace professional veterinary or training advice. Always consult with a certified expert before making decisions about your dog's health or behavior.
-    </p>
-    <a href="shopping.html" class="btn">Explore Our Collection</a>
-  </div>
-</section>
+      <p class="hero-subtext">
+        Disclaimer: The content on this blog is for informational purposes only and does not replace professional veterinary or training advice. Always consult with a certified expert before making decisions about your dog's health or behavior.
+      </p>
+
+      <a href="shopping.html" class="btn hero-btn">Explore Our Collection</a>
+    </div>
+  </section>
+</main>
+
 
 <section class="cards blog-posts" id="blog-list"></section>
 
