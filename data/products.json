@@ -1,11 +1,15 @@
 [
-  {
-    "id": "p01",
-    "name": "Classic Chew Bone",
-    "price": 35,
-    "image": "images/Toy.jpg",
-    "category": "DogsToys"
-  },
+{
+  "id": "p12",
+  "name": "Soft Plush Dog Bed",
+  "image": "images/Toy.jpg",
+  "extraImages": ["images/Toy.jpg", "images/Scot.jpg"],
+  "price": 39.99,
+  "oldPrice": 49.99,
+  "tags": ["Comfort", "Bestseller"],
+  "description": "A cozy plush bed perfect for small to medium-sized dogs.",
+  "category": "DogsToys"
+},
   {
     "id": "p02",
     "name": "Mini Ball Toy",
