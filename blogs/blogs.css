@@ -89,3 +89,56 @@ main.blog-content {
 *::after {
   box-sizing: border-box;
 }
+
+
+.cards.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 30px;
+}
+
+.cards.blog-posts .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+  text-align: center; /* Center text & button */
+}
+
+.cards.blog-posts .card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.cards.blog-posts .card p {
+  flex-grow: 1;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.cards.blog-posts .card .btn {
+  margin-top: auto;
+  align-self: center; /* ממרכז את הכפתור אופקית */
+  background-color: #000000;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent; /* מוסיף מסגרת שקופה כברירת מחדל */
+}
+
+.cards.blog-posts .card .btn:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black; /* כאן קובעים את עובי וצבע המסגרת */
+}
+
+
