@@ -137,21 +137,22 @@ header nav {
 
 .cart-count {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: red;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: bold;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
+  padding: 2px 5px;
+  height: auto;
+  border-radius: 999px; /* תמיד עיגול/אליפסה */
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  line-height: 1.3;
+  line-height: 1;
   z-index: 2;
+  white-space: nowrap;
 }
 
 header nav a.button.active {
@@ -196,16 +197,7 @@ header nav a.button.active {
     height: 25px;
   }
 
-  .cart-count {
-    top: 8px;
-    right: 8px;
-    transform: translate(30%, -30%);
-    font-size: 0.6rem;
-    padding: 2px 4px;
-    min-width: 14px;
-    height: 12px;
-    width: 12px;
-  }
+
 }
 </style>
 
