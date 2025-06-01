@@ -55,6 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      injectDynamicSEO({
+  title: `${product.name} | PUPPERDISE`,
+  description: product.description || "High-quality product for your dog.",
+  image: location.origin + "/" + product.image,
+  url: location.href
+});
+
 container.innerHTML = `
   <div class="image-gallery">
     <img src="${product.image}" class="main-img" id="mainProductImage" alt="${product.name}">
@@ -97,3 +104,32 @@ document.getElementById("addToCartBtn").addEventListener("click", () => {
       updateCartCount();
     });
 });
+
+
+
+function injectDynamicSEO({ title, description, image, url }) {
+  const head = document.head;
+
+  // Remove old dynamic SEO tags
+  document.querySelectorAll('meta[data-dynamic-seo]').forEach(el => el.remove());
+
+  const metaTags = [
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:image", content: image },
+    { property: "og:url", content: url }
+  ];
+
+  metaTags.forEach(tag => {
+    const meta = document.createElement("meta");
+    if (tag.name) meta.setAttribute("name", tag.name);
+    if (tag.property) meta.setAttribute("property", tag.property);
+    meta.setAttribute("content", tag.content);
+    meta.setAttribute("data-dynamic-seo", "true"); // Mark for cleanup
+    head.appendChild(meta);
+  });
+
+  // Optionally update document title
+  document.title = title;
+}
