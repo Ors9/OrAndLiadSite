@@ -17,6 +17,13 @@ pages.forEach(page => {
   const seoPath = path.join(__dirname, page.seo);
   const distPath = path.join(distDir, page.html);
 
+  const fse = require('fs-extra'); // לוודא שהתקנת את החבילה הזו
+
+  // Copy static folders
+  ['css', 'scripts', 'images', 'data'].forEach(dir => {
+    fse.copySync(path.join(__dirname, dir), path.join(distDir, dir));
+  });
+
   if (!fs.existsSync(htmlPath) || !fs.existsSync(seoPath)) {
     console.warn('⚠️ Missing file:', htmlPath, 'or', seoPath);
     return;
