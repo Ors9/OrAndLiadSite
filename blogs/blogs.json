@@ -28,5 +28,25 @@
     "title": "✈️ Traveling with Your Dog",
     "description": "Tips for road trips, flights, and hotel stays with your furry companion.",
     "link": "blogs/blog6.html"
+  },
+    {
+    "title": "🦷 Dental Care for Dogs Made Simple",
+    "description": "Keep your dog’s smile healthy with easy brushing tips, treats that clean, and warning signs to watch for.",
+    "link": "blogs/blog7.html"
+  },
+  {
+    "title": "🐾 Understanding Dog Body Language",
+    "description": "Learn what your dog is really trying to tell you — from tail wags to ear positions.",
+    "link": "blogs/blog8.html"
+  },
+  {
+    "title": "🍗 Homemade Dog Treat Recipes",
+    "description": "Quick and healthy snack ideas your dog will go crazy for (and you can pronounce every ingredient).",
+    "link": "blogs/blog9.html"
+  },
+  {
+    "title": "💤 Dog Sleep 101: How Much Rest Do They Need?",
+    "description": "Find out how long your dog should sleep and what to do if they’re restless or oversleeping.",
+    "link": "blogs/blog10.html"
   }
 ]
