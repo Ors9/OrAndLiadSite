@@ -18,13 +18,17 @@ pages.forEach(page => {
   const distPath = path.join(distDir, page.html);
 
   if (!fs.existsSync(htmlPath) || !fs.existsSync(seoPath)) {
-    console.warn('Missing file:', htmlPath, 'or', seoPath);
+    console.warn('⚠️ Missing file:', htmlPath, 'or', seoPath);
     return;
   }
 
   let html = fs.readFileSync(htmlPath, 'utf-8');
   const seo = fs.readFileSync(seoPath, 'utf-8');
 
+  // 🔁 Remove existing SEO include line (if present)
+  html = html.replace(/<div\s+data-include=["'][^"']*seo[^"']*["']><\/div>\s*/gi, '');
+
+  // 🧠 Inject SEO before </head>
   html = html.replace(/<head>([\s\S]*?)<\/head>/i, match => {
     return match.replace(/<head>/i, '<head>\n' + seo.trim());
   });
