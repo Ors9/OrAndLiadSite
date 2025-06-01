@@ -43,18 +43,14 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #f9f9f9; /* או כל צבע אחר */
 }
 
     .hero h2 {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
-.hero {
-  background: linear-gradient(to right, #8e8e8e, #000);
-  color: white;
-  text-align: center;
-  padding: 2px
-}
+
 
 .container {
   max-width: 1100px;
@@ -64,6 +60,7 @@ html, body {
 .hero h2 {
   padding-top: 10px;
   font-size: clamp(2rem, 4vw, 3rem);
+  
   font-weight: 800;
   margin-bottom: 10px;
   display: inline-flex;
@@ -75,12 +72,11 @@ html, body {
 .hero h2 img {
   height: 1.2em;
   vertical-align: middle;
-  filter: brightness(0) invert(1);
 }
 
 .hero-subtext {
   font-size: 0.95rem;
-  color: #e0e0e0;
+  color: #000000;
   line-height: 1;
   margin: 20px auto;
   max-width: 750px;
@@ -90,8 +86,8 @@ html, body {
 
 .hero-btn {
   margin-top: 25px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #f9f9f9;
   border-radius: 25px;
   padding: 12px 28px;
   font-weight: bold;
@@ -101,8 +97,9 @@ html, body {
 }
 
 .hero-btn:hover {
-  background-color: #e0e0e0;
-  color: #000;
+  background-color: #ffffff;
+  color: #000000;
+  border: black solid 2px;
 }
 
     .cards.blog-posts .card {
@@ -133,9 +130,10 @@ html, body {
 
 .hero {
   width: 100vw; /* תופס את כל רוחב המסך */
-  background: linear-gradient(to right, #969595, #000000);
-  color: white;
+  background: #f9f9f9;
+  color: black;
   text-align: center;
+
   padding: 12px 0;
   box-sizing: border-box;
 }
@@ -156,7 +154,7 @@ html, body {
   <section class="hero">
     <div class="container">
       <h2>
-        PUPPERDISE Blog
+        PUPPERDISE Blog  
         <img src="images/paws.png" alt="paws">
       </h2>
 
