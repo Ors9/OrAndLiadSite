@@ -67,37 +67,11 @@ fetch("data/products.json")
     updateCartCount();
 
     // ✅ גלילה חלקה לפי מיקום האלמנט ומרחק מההדר
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        // חכה קצת לוודא שהכל נטען לגמרי
-        setTimeout(() => {
-          const headerOffset = 300; // שנה לפי גובה ההדר שלך
-          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-          const offsetPosition = elementPosition - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }, 100); // 100ms בד"כ מספיק
-      }
-    }
+    scrollToHashWithOffset(window.location.hash, 300);
 
   });
 
-function categoryToTitle(categoryId) {
-  const map = {
-    DogsToys: "Dog Toys",
-    DogsTreats: "Treats & Snacks",
-    DogsCare: "Grooming & Hygiene",
-    DogFood: "Dry & Wet Food",
-    DogsWalk: "Walking & Outdoor Gear",
-    DogsBeds: "Beds & Blankets",
-    DogsGadget: "Dog Gadgets",
-    DogsFashion: "Clothing & Accessories",
-    DogsTravel: "Travel & Transport Products" 
-  };
-  return map[categoryId] || categoryId;
-}
+
+
+
+
