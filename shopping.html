@@ -54,11 +54,14 @@
   
   <main>
 
-<section class="search-section">
-  <input type="text" id="search-input" placeholder="Search products or categories..." autocomplete="off">
+<div class="search-section">
+  <div class="search-wrapper">
+    <button id="search-button" title="Search">→</button>
+    <input type="text" id="search-input" placeholder="Search products..." />
+    <button id="close-button" title="Close">✖</button>
+  </div>
   <div id="search-suggestions" class="suggestions-box"></div>
-</section>
-
+</div>
 
 <section class="cards-section"></section>
 

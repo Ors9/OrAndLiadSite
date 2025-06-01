@@ -1,32 +1,40 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("search-input");
   const suggestionsBox = document.getElementById("search-suggestions");
+  const searchButton = document.getElementById("search-button");
+  const closeButton = document.getElementById("close-button");
+
+  closeButton.addEventListener("click", () => {
+    input.value = "";
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "none";
+  });
 
   fetch("data/products.json")
     .then(res => res.json())
     .then(products => {
-
-
-
       const categories = [...new Set(products.map(p => p.category))];
 
       function showSuggestions(filter = "") {
-        const value = filter.toLowerCase().trim();
+        const words = filter.toLowerCase().trim().split(" ");
         suggestionsBox.innerHTML = "";
 
         const matchedCategories = categories
-          .filter(cat => cat.toLowerCase().includes(value))
+          .filter(cat =>
+            words.every(word => cat.toLowerCase().includes(word))
+          )
           .map(cat => ({ type: "category", id: cat, title: categoryToTitle(cat.trim()) }));
 
         const matchedProducts = products
           .filter(p =>
-            p.name.toLowerCase().includes(value) ||
-            (p.description && p.description.toLowerCase().includes(value)) ||
-            (p.tags && p.tags.some(tag => tag.toLowerCase().includes(value)))
+            words.every(word =>
+              p.name.toLowerCase().includes(word) ||
+              (p.description && p.description.toLowerCase().includes(word)) ||
+              (p.tags && p.tags.some(tag => tag.toLowerCase().includes(word)))
+            )
           )
           .map(p => ({ type: "product", value: p.name, id: p.id }));
+
 
         const results = [...matchedCategories, ...matchedProducts];
 
@@ -71,56 +79,62 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestionsBox.style.display = "block";
       }
 
-      // בעת הקלדה
       input.addEventListener("input", () => {
         showSuggestions(input.value);
       });
 
-
       input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
+        if (e.key === "Enter") {
+          e.preventDefault();
+          executeSearch();
+        }
+      });
 
-    const value = input.value.toLowerCase().trim();
+      searchButton.addEventListener("click", () => {
+        executeSearch();
+      });
 
-    const matchedCategories = categories
-      .filter(cat => cat.toLowerCase().includes(value))
-      .map(cat => ({ type: "category", id: cat, title: categoryToTitle(cat.trim()) }));
+      function executeSearch() {
+        const words = input.value.toLowerCase().trim().split(" ");
 
-    const matchedProducts = products
-      .filter(p =>
-        p.name.toLowerCase().includes(value) ||
-        (p.description && p.description.toLowerCase().includes(value)) ||
-        (p.tags && p.tags.some(tag => tag.toLowerCase().includes(value)))
-      )
-      .map(p => ({ type: "product", value: p.name, id: p.id }));
+      const matchedCategories = categories
+        .filter(cat =>
+          words.every(word => cat.toLowerCase().includes(word))
+        )
+        .map(cat => ({ type: "category", id: cat, title: categoryToTitle(cat.trim()) }));
 
-    const results = [...matchedCategories, ...matchedProducts];
+      const matchedProducts = products
+        .filter(p =>
+          words.every(word =>
+            p.name.toLowerCase().includes(word) ||
+            (p.description && p.description.toLowerCase().includes(word)) ||
+            (p.tags && p.tags.some(tag => tag.toLowerCase().includes(word)))
+          )
+        )
+        .map(p => ({ type: "product", value: p.name, id: p.id }));
 
-    if (results.length === 0) return;
+        const results = [...matchedCategories, ...matchedProducts];
 
-    const first = results[0];
+        if (results.length === 0) return;
 
-if (first.type === "category") {
-  const target = document.getElementById(first.id);
-  if (target) {
-    input.value = first.title;
-    scrollToElementWithOffset(target);
-    suggestionsBox.style.display = "none";
-  }
-    } else if (first.type === "product") {
-      window.location.href = `product.html?id=${first.id}`;
-    }
-  }
-});
+        const first = results[0];
 
+        if (first.type === "category") {
+          const target = document.getElementById(first.id);
+          if (target) {
+            input.value = first.title;
+            scrollToElementWithOffset(target);
+            suggestionsBox.style.display = "none";
+          }
+        } else if (first.type === "product") {
+          window.location.href = `product.html?id=${first.id}`;
+        }
+      }
 
-      // בעת לחיצה – הצג את כל האפשרויות
       input.addEventListener("focus", () => {
         showSuggestions("");
       });
 
-      // סגירה בלחיצה מחוץ לאזור החיפוש
       document.addEventListener("click", (e) => {
         if (!e.target.closest(".search-section")) {
           suggestionsBox.style.display = "none";
