@@ -7,7 +7,7 @@ const pages = [
   { html: 'shopping.html', seo: 'SEO/shopping-seo.html' },
 ];
 
-const distDir = path.join(__dirname, 'dist');
+const distDir = path.join(__dirname, 'docs');
 if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir);
 }
