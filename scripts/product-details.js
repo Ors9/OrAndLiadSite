@@ -92,7 +92,7 @@ container.innerHTML = `
     <div class="fixed-buttons">
 
       <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
-      <button class="add-to-cart-button" onclick="history.back()">← Back to Shop</button>
+<button class="add-to-cart-button" onclick="location.href='shopping.html'">← Back to Shop</button>
     </div>
   </div>
 `;
