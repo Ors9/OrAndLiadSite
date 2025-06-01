@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+
+
+
+
 body {
   background-color: #f8f8f8;
   font-family: 'Segoe UI', sans-serif;
@@ -17,12 +21,13 @@ main {
 .cards-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+   margin-top: -50px; 
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 60px;
+
 }
+
 
 .category {
   display: flex;
