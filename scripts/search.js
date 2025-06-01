@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
               suggestionsBox.style.display = "none";
               const target = document.getElementById(result.id);
               if (target) {
-                scrollToElementWithOffset(target);;
+                setTimeout(() => {
+                scrollToElementWithOffset(target, 300);
+                }, 100);
               }
             });
           } else {
