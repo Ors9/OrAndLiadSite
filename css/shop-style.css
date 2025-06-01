@@ -35,11 +35,11 @@ main {
 }
 
 .category-title {
-  font-size: 2rem;
+
   font-weight: 600;
-  color: #222;
+  color: #000000;
   position: relative;
-  
+  font-size: clamp(1.2rem, 3vw, 2rem);
   border-bottom: 2px solid #e0e0e0;
 }
 
