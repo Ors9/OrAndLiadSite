@@ -97,3 +97,9 @@ body {
     padding: 20px 10px;
   }
 }
+
+
+.hero h2 img {
+  height: 1.2em;
+  vertical-align: middle;
+}
