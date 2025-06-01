@@ -7,12 +7,16 @@ function includeHTML() {
         el.innerHTML = html;
 
         // ✅ Run updateCartCount after header is included
-        if (file.includes("header")) {
-          setTimeout(() => {
+      if (file.includes("header")) {
+        const waitForCartCount = setInterval(() => {
+          const span = document.querySelector(".cart-count");
+          if (span) {
+            clearInterval(waitForCartCount);
             updateCartCount();
             startCarousel();
-          }, 0);
-        }
+          }
+        }, 50);
+      }
       })
       .catch(err => {
         el.innerHTML = "<p style='color: red;'>Include failed</p>";
