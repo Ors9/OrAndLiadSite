@@ -40,3 +40,21 @@
 .suggestions-box div:hover {
   background-color: #f0f0f0;
 }
+
+
+.suggestions-box img.suggestion-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.suggestions-box div {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: ltr; /* ✅ טקסט מימין, תמונה משמאל */
+}

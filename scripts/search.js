@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("search-input");
   const suggestionsBox = document.getElementById("search-suggestions");
@@ -38,22 +40,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (result.type === "category") {
             div.textContent = `🔎 Category: ${result.title}`;
+            div.classList.add("suggestion-category");
             div.addEventListener("click", () => {
               input.value = result.title;
               suggestionsBox.style.display = "none";
               const target = document.getElementById(result.id);
               if (target) {
                 setTimeout(() => {
-                scrollToElementWithOffset(target, 300);
+                  scrollToElementWithOffset(target, 300);
                 }, 100);
               }
             });
           } else {
-            div.textContent = `🛍️ Product: ${result.value}`;
+            const product = products.find(p => p.id === result.id);
+            div.classList.add("suggestion-product");
+            div.innerHTML = `
+              <img src="${product.image}" alt="${product.name}" class="suggestion-thumb">
+              <span>${product.name}</span>
+            `;
             div.addEventListener("click", () => {
-              input.value = result.value;
+              input.value = product.name;
               suggestionsBox.style.display = "none";
-              window.location.href = `product.html?id=${result.id}`;
+              window.location.href = `product.html?id=${product.id}`;
             });
           }
 
