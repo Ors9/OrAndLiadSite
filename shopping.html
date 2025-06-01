@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+  <link rel="stylesheet" href="css/search-section.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/shop-style.css">
  
 
+  <script src="scripts/search.js" defer></script>
   <script src="scripts/include.js" defer></script>
   <script src="scripts/shop.js" defer></script>
 
@@ -20,6 +21,13 @@
   <div data-include="header.html"></div>
   
   <main>
+
+<section class="search-section">
+  <input type="text" id="search-input" placeholder="Search products or categories..." autocomplete="off">
+  <div id="search-suggestions" class="suggestions-box"></div>
+</section>
+
+
 <section class="cards-section"></section>
 
 

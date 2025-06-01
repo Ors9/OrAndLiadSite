@@ -1,0 +1,42 @@
+.search-section {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 0;
+}
+
+.suggestions-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  text-align: left;
+}
+
+.suggestions-box div {
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestions-box div:hover {
+  background-color: #f0f0f0;
+}
