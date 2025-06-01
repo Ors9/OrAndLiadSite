@@ -23,8 +23,8 @@ body {
 
 /* Hero section */
 .hero {
-  background: linear-gradient(to right, #969595, #000000);
-  color: white;
+  background: #f0f0f0; /* background: linear-gradient(to right, #969595, #000000);*/
+  color: black;
   text-align: center;
   padding: 20px 0;         /* במקום רווחים ענקיים */
   margin: 0;
@@ -43,14 +43,16 @@ body {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
 }
 .hero .btn:hover {
-  background-color: #e0e0e0;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
 }
 
 /* Card section */
