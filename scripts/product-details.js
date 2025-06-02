@@ -34,7 +34,17 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-  // Removed button text feedback and disable
+    // ✅ אפקט זמני של כפתור "Added"
+  if (buttonElement) {
+    const originalText = buttonElement.textContent;
+    buttonElement.textContent = "✓ Added";
+    buttonElement.disabled = true;
+
+    setTimeout(() => {
+      buttonElement.textContent = originalText;
+      buttonElement.disabled = false;
+    }, 750);
+  }
 }
 
 // Main
