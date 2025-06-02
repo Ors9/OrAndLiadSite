@@ -46,7 +46,17 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-  // ✅ Button feedback removed — button stays the same
+    // ✅ שינוי זמני בטקסט הכפתור
+  if (buttonElement) {
+    const originalText = buttonElement.textContent;
+    buttonElement.textContent = "✓ Added";
+    buttonElement.disabled = true; // מונע לחיצות כפולות לשנייה
+
+    setTimeout(() => {
+      buttonElement.textContent = originalText;
+      buttonElement.disabled = false;
+    }, 750);
+  }
 }
 
 // ✅ Load products from JSON and display them
