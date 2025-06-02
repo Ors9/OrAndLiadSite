@@ -28,6 +28,8 @@ body {
   text-align: center;
   padding: 20px 0;         /* במקום רווחים ענקיים */
   margin: 0;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 .hero h2 {
   font-size: clamp(1.2rem, 5vw, 2rem);
@@ -102,4 +104,17 @@ body {
 .hero h2 img {
   height: 1.2em;
   vertical-align: middle;
+}
+
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px; /* ריווח מהצדדים */
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px; /* ריווח טיפה יותר קטן בנייד */
+  }
 }
