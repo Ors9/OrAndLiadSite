@@ -223,35 +223,73 @@ updateCart(
  });
 
 });
-
-function injectDynamicSEO({ title, description, image, url, keywords, name }) {
+function injectDynamicSEO({ title, description, image, url, keywords }) {
   const head = document.head;
 
-  // Remove old dynamic SEO tags
-  document.querySelectorAll('meta[data-dynamic-seo]').forEach(el => el.remove());
+  // ניקוי תגיות SEO קודמות
+  document.querySelectorAll('[data-dynamic-seo]').forEach(el => el.remove());
 
-const metaTags = [
-  { name: "description", content: description },
-  { name: "keywords", content: keywords },
-  { property: "og:title", content: title },
-  { property: "og:description", content: description },
-  { property: "og:image", content: image },
-  { property: "og:url", content: url } ,
-  { property: "og:name", content: name }
-];
-
+  const metaTags = [
+    { name: "description", content: description },
+    { name: "keywords", content: keywords },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:image", content: image },
+    { property: "og:url", content: url },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: image }
+  ];
 
   metaTags.forEach(tag => {
     const meta = document.createElement("meta");
     if (tag.name) meta.setAttribute("name", tag.name);
     if (tag.property) meta.setAttribute("property", tag.property);
     meta.setAttribute("content", tag.content);
-    meta.setAttribute("data-dynamic-seo", "true"); // Mark for cleanup
+    meta.setAttribute("data-dynamic-seo", "true");
     head.appendChild(meta);
   });
 
+  // Canonical
+  const canonical = document.createElement("link");
+  canonical.setAttribute("rel", "canonical");
+  canonical.setAttribute("href", url);
+  canonical.setAttribute("data-dynamic-seo", "true");
+  head.appendChild(canonical);
 
-  // Optionally update document title
+  // Structured Data
+  const product = window.currentProductData;
+  if (product) {
+  const structuredData = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": title,
+    "image": [image],
+    "description": description,
+    "sku": product.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "PUPPERDISE"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": url,
+      "priceCurrency": "USD",
+      "price": product.price,
+      "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+    }
+  };
+
+    const jsonLdScript = document.createElement("script");
+    jsonLdScript.type = "application/ld+json";
+    jsonLdScript.textContent = JSON.stringify(structuredData);
+    jsonLdScript.setAttribute("data-dynamic-seo", "true");
+    head.appendChild(jsonLdScript);
+  }
+
+  // עדכון כותרת הדף
   document.title = title;
 }
+
 
