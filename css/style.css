@@ -286,7 +286,7 @@ body {
 
 .cards-wrapper {
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 0 4px; /* only horizontal */
   margin: 0;
