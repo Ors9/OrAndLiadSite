@@ -272,12 +272,13 @@ body {
   }
 
 @media (max-width: 600px) {
-  .cards-wrapper {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 10px;
-  }
+.cards-wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-inline: 4px;
+  padding-block: 10px;
+}
 
   .cards {
     display: flex;
@@ -297,7 +298,7 @@ body {
 }
 
   .card img {
-    max-height: 140px;
+    max-height: auto;
     object-fit: contain;
     width: 100%;
     border-radius: 8px;
