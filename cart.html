@@ -381,6 +381,7 @@ main {
 
   <div class="cart-footer" id="cart-actions" style="display: none;">
     <div class="total" id="cart-total">Total: 0 $</div>
+    <div class="total" id="cart-saved" style="color: #ccc;"></div>
     <div class="actions">
       <button class="checkout-btn">Proceed to Checkout</button>
     </div>
@@ -427,7 +428,12 @@ main {
 
       // Name cell
       const nameCell = document.createElement("td");
-      nameCell.textContent = item.name;
+        nameCell.innerHTML = `
+          <strong>${item.name}</strong>
+          ${item.color || item.size ? `<div style="font-size: 0.85rem; color: #777;">${[item.color, item.size].filter(Boolean).join(", ")}</div>` : ""}
+        `;
+
+
 
       // Quantity cell with buttons
       const qtyCell = document.createElement("td");
@@ -462,13 +468,29 @@ main {
 
       // Price cell
       const priceCell = document.createElement("td");
-      priceCell.textContent = item.price + " $";
+
+      if (item.oldPrice && item.oldPrice > item.price) {
+        priceCell.innerHTML = `<span style="text-decoration: line-through; color: #888;">${item.oldPrice} $</span><br><strong>${item.price} $</strong>`;
+      } else {
+        priceCell.innerHTML = `<strong>${item.price} $</strong>`;
+      }
 
       // Total cell
-      const sumCell = document.createElement("td");
-      const itemTotal = item.price * item.quantity;
-      total += itemTotal;
-      sumCell.textContent = itemTotal.toFixed(2) + " $";
+        const sumCell = document.createElement("td");
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+if (item.oldPrice && item.oldPrice > item.price) {
+  const oldTotal = item.oldPrice * item.quantity;
+  const savedAmount = oldTotal - itemTotal;
+
+  sumCell.innerHTML = `
+    <span style="text-decoration: line-through; color: #888;">${oldTotal.toFixed(2)} $</span><br>
+    <strong>${itemTotal.toFixed(2)} $</strong><br>
+    <span style="color: green; font-size: 0.85rem;">💰 You saved ${savedAmount.toFixed(2)} $</span>
+  `;
+}
+
 
       // Append all to row
       row.appendChild(imgCell);
@@ -481,7 +503,16 @@ main {
     });
 
     cartTotalEl.textContent = "Total: " + total.toFixed(2) + " $";
-  }
+
+    const savedEl = document.getElementById("cart-saved");
+    const totalOriginal = cart.reduce((sum, item) => {
+      const priceToUse = item.oldPrice && item.oldPrice > item.price ? item.oldPrice : item.price;
+      return sum + priceToUse * item.quantity;
+    }, 0);
+
+    const saved = totalOriginal - total;
+    savedEl.textContent = saved > 0 ? `You saved: ${saved.toFixed(2)} $` : "";
+      }
 
   renderCart();
 </script>

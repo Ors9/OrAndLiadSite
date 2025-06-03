@@ -18,9 +18,13 @@ function updateCartCount() {
 }
 
 // Add or update item in cart
-function updateCart(name, price, quantity, image, buttonElement) {
+function updateCart(name, price, quantity, image, buttonElement, color, size, oldPrice) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existingItem = cart.find(item => item.name === name);
+  const existingItem = cart.find(item =>
+  item.name === name &&
+  item.color === color &&
+  item.size === size
+);
 
   const product = window.currentProductData;
   const currentQuantity = existingItem ? existingItem.quantity : 0;
@@ -36,7 +40,15 @@ if (product && currentQuantity + quantity > product.stock) {
   if (existingItem) {
     existingItem.quantity += quantity;
   } else {
-    cart.push({ name, price, quantity, image });
+    cart.push({
+  name,
+  price,
+  quantity,
+  image,
+  color,
+  size,
+  oldPrice
+});
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -195,13 +207,16 @@ if (missingColor || missingSize) {
 
   const variation = `${selectedColor || ""}${selectedColor && selectedSize ? ", " : ""}${selectedSize || ""}`;
 
-  updateCart(
-    product.name + (variation ? ` (${variation})` : ""),
-    product.price,
-    1,
-    product.image,
-    addToCartBtn
-  );
+updateCart(
+  product.name,
+  product.price,
+  1,
+  product.image,
+  addToCartBtn,
+  selectedColor,
+  selectedSize,
+  product.oldPrice || null
+);
     });
  });
 

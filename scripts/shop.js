@@ -29,25 +29,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ✅ Add or update item in cart
-// ✅ Add or update item in cart
-function updateCart(name, price, quantity, image, buttonElement) {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!Array.isArray(cart)) {
-    cart = [];
+function updateCart(name, price, quantity, image, buttonElement, color, size, oldPrice) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const variation = [color, size].filter(Boolean).join(", ");
+  const existingItem = cart.find(item =>
+    item.name === name &&
+    item.color === color &&
+    item.size === size
+  );
+
+  const product = window.currentProductData;
+  const currentQuantity = existingItem ? existingItem.quantity : 0;
+
+  if (product && currentQuantity + quantity > product.stock) {
+    alert(`You can order up to ${product.stock} items of this product.`);
+    return;
   }
 
-  const existingItem = cart.find(item => item.name === name);
   if (existingItem) {
     existingItem.quantity += quantity;
   } else {
-    cart.push({ name, price, quantity, image });
+    cart.push({
+      name,
+      price,
+      quantity,
+      image,
+      color,
+      size,
+      oldPrice
+    });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
+  if (buttonElement) {
+    const originalText = buttonElement.textContent;
+    buttonElement.textContent = "✓ Added";
+    buttonElement.disabled = true;
 
+    setTimeout(() => {
+      buttonElement.textContent = originalText;
+      buttonElement.disabled = false;
+    }, 750);
+  }
 }
+
 
 // ✅ Load products from JSON and display them
 fetch('/siteWithLiad/data/products.json')
