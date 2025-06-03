@@ -83,12 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      injectDynamicSEO({
-        title: `${product.name} | PUPPERDISE`,
-        description: product.description || "High-quality product for your dog.",
-        image: location.origin + "/" + product.image,
-        url: location.href
-      });
+injectDynamicSEO({
+  title: product.metaTitle || `${product.name} | PUPPERDISE`,
+  description: product.metaDescription || product.description || "High-quality product for your dog.",
+  image: location.origin + "/" + product.image,
+  url: location.href,
+  keywords: product.keywords?.join(", ") || "",
+  name: product.name  // ← הוספנו את זה
+});
 
       container.innerHTML = `
       
@@ -222,19 +224,22 @@ updateCart(
 
 });
 
-function injectDynamicSEO({ title, description, image, url }) {
+function injectDynamicSEO({ title, description, image, url, keywords, name }) {
   const head = document.head;
 
   // Remove old dynamic SEO tags
   document.querySelectorAll('meta[data-dynamic-seo]').forEach(el => el.remove());
 
-  const metaTags = [
-    { name: "description", content: description },
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:image", content: image },
-    { property: "og:url", content: url }
-  ];
+const metaTags = [
+  { name: "description", content: description },
+  { name: "keywords", content: keywords },
+  { property: "og:title", content: title },
+  { property: "og:description", content: description },
+  { property: "og:image", content: image },
+  { property: "og:url", content: url } ,
+  { property: "og:name", content: name }
+];
+
 
   metaTags.forEach(tag => {
     const meta = document.createElement("meta");
@@ -244,6 +249,12 @@ function injectDynamicSEO({ title, description, image, url }) {
     meta.setAttribute("data-dynamic-seo", "true"); // Mark for cleanup
     head.appendChild(meta);
   });
+
+console.log("SEO Meta Tags for", name, {
+  title,
+  description,
+  keywords
+});
 
   // Optionally update document title
   document.title = title;

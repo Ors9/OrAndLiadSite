@@ -1,14 +1,17 @@
 [
   {
-    "id": "p02",
-    "name": "Mini Ball Toy",
-    "price": 12,
-    "image": "images/Scot.jpg",
-    "category": "DogsToys"
-  },
+  "id": "p02",
+  "name": "OR TESTTTT SEP",
+  "price": 19.99,
+  "image": "images/Toy.jpg",
+  "category": "DogsToys",
+  "metaTitle": "OR TESTTTT | PUPPERDISE - Comfort for Dogs",
+  "metaDescription": "OR TESTTTT is a comfortable and stylish product for your dog.",
+  "keywords": ["dog", "comfort", "shirt"] 
+},
 {
   "id": "p03",
-  "name": "OR TESTTTT",
+  "name": "OR TESTTTT COLOR ETC",
   "price": 19.99,
   "image": "images/Toy.jpg",
   "category": "DogsToys" ,
