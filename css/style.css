@@ -41,21 +41,7 @@ body {
 .hero p {
   font-size: 1.2rem;
 }
-.hero .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #000000;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.hero .btn:hover {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  border: 2px solid black;
-}
+
 
 /* Card section */
 .cards {
@@ -140,21 +126,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.card-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-  background-color: #000000;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
 
-.card-btn:hover {
-  background-color: #444444;
-}
 
 
 @media (max-width: 600px) {
@@ -164,9 +136,65 @@ body {
 }
 
 
+.newsletter {
+  background-color: #fefefe;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  max-width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
 
 
 
+
+
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
 
 
 
