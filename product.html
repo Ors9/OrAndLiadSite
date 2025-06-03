@@ -214,6 +214,60 @@ main {
   color: white;
 }
 
+/* Ensure only the carousel has the scroll behavior */
+.related-products {
+  width: 100%;  /* Ensure the parent container takes full width */
+  overflow: hidden; /* Prevent overflow in parent container */
+}
+
+/* Carousel: Apply horizontal scroll only here */
+.related-products-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;              /* Horizontal scrolling here */
+  scroll-snap-type: x mandatory; /* Snapping to items */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  padding: 8px 0;                /* Padding for spacing */
+  scroll-behavior: smooth;       /* Smooth scroll behavior */
+  width: 100%;                   /* Ensure it takes full available width */
+}
+
+/* Product cards in the carousel */
+.related-products-carousel .product-card {
+  flex-shrink: 0;
+  width: 200px;                    /* Width for each card */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add some shadow */
+  text-align: center;
+  padding: 12px 8px;
+  transition: transform 0.3s ease; /* Hover effect */
+}
+
+/* Image in each product card */
+.related-products-carousel .product-card img {
+  width: 100%;                 /* Take full width of the card */
+  height: 180px;               /* Fixed height for images */
+  object-fit: cover;           /* Ensure image covers space */
+  object-position: center;     /* Center the image */
+  border-radius: 8px;          /* Rounded corners */
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .related-products-carousel {
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .related-products-carousel .product-card {
+    width: 150px;               /* Smaller width for mobile */
+  }
+}
+
+
+
+
 </style>
 
 </head>
@@ -222,8 +276,14 @@ main {
   <div data-include="/siteWithLiad/header.html"></div>
 
   <main>
+    <!--Products will be inserted here dynamically -->
     <div id="product-details" class="product-details"></div>
-    
+
+<div class="related-products">
+  <div class="related-products-carousel" id="related-products-carousel">
+    <!-- Related products will be dynamically inserted here -->
+  </div>
+</div>
   </main>
 
   <div data-include="footer.html"></div>

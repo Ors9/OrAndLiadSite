@@ -93,7 +93,6 @@ injectDynamicSEO({
 });
 
       container.innerHTML = `
-      
         <div class="image-gallery">
           <img src="${product.image}" class="main-img" id="mainProductImage" alt="${product.name}">
           <div class="extra-images">
@@ -113,57 +112,96 @@ injectDynamicSEO({
               </div>`
             : `<span class="price">${product.price} $</span>`}
 
-${product.stock === 0
-  ? `<p class="stock-info" style="color: gray; font-weight: bold;">🚫 Out of stock</p>`
-  : product.stock <= 5
-    ? `<p class="stock-info" style="color: red; font-weight: bold;">⏳ Only ${product.stock} left in stock!</p>`
-    : ``}
-
-
+          ${product.stock === 0
+            ? `<p class="stock-info" style="color: gray; font-weight: bold;">🚫 Out of stock</p>`
+            : product.stock <= 5
+              ? `<p class="stock-info" style="color: red; font-weight: bold;">⏳ Only ${product.stock} left in stock!</p>`
+              : ``}
 
           ${product.tags ? `<div class="tags">
               ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
             </div>` : ""}
 
- ${product.variations ? `
-  <div class="variation-buttons">
-    <div class="variation-group">
-      <p>Color:</p>
-      <div id="colorOptions">
-        ${product.variations.color.map(color => `
-          <button class="variation-btn" data-type="color" data-value="${color}">${color}</button>
-        `).join("")}
-      </div>
-    </div>
+          ${product.variations ? `
+            <div class="variation-buttons">
+              <div class="variation-group">
+                <p>Color:</p>
+                <div id="colorOptions">
+                  ${product.variations.color.map(color => `
+                    <button class="variation-btn" data-type="color" data-value="${color}">${color}</button>
+                  `).join("")}
+                </div>
+              </div>
 
-    <div class="variation-group">
-      <p>Size:</p>
-      <div id="sizeOptions">
-        ${product.variations.size.map(size => `
-          <button class="variation-btn" data-type="size" data-value="${size}">${size}</button>
-        `).join("")}
-      </div>
-    </div>
-  </div>
-` : ""}
-
+              <div class="variation-group">
+                <p>Size:</p>
+                <div id="sizeOptions">
+                  ${product.variations.size.map(size => `
+                    <button class="variation-btn" data-type="size" data-value="${size}">${size}</button>
+                  `).join("")}
+                </div>
+              </div>
+            </div>
+          ` : ""}
 
           <h3 class="description-title">Product Description</h3>
           <p class="description">${product.description || "No description available."}</p>
 
           <div class="fixed-buttons">
-          <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
+            <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
             <button class="add-to-cart-button" onclick="location.href='shopping.html'">← Back to Shop</button>
+          </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <div class="related-products">
+          <h3>Customers who bought this also liked:</h3>
+          <div class="related-products-carousel" id="related-products-carousel">
+            <!-- Related products will be dynamically inserted here -->
           </div>
         </div>
       `;
 
+            // **Debugging**: Make sure the `relatedProductIds` is not empty
+      console.log("Related product IDs:", product.relatedProductIds);
+      
       // אירועים לאחר בניית ה־DOM
       const addToCartBtn = document.getElementById("addToCartBtn");
   if (product.stock === 0) {
   addToCartBtn.disabled = true;
   addToCartBtn.textContent = "Unavailable";
+  }
+
+// Load related products into the carousel
+if (product.relatedProductIds && product.relatedProductIds.length > 0) {
+  const relatedProductsContainer = document.getElementById("related-products-carousel");
+    console.log("Related product IDs:", product.relatedProductIds);
+  product.relatedProductIds.forEach(relatedId => {
+    const relatedProduct = products.find(p => p.id === relatedId); // Look for each related product
+          console.log("Found related product:", relatedProduct); // הדפסת המוצר שנמצא
+
+    if (relatedProduct) {
+      const link = `product.html?id=${relatedProduct.id}`;
+      console.log("Generated link for related product:", link);
+      // Dynamically add related products to the carousel with links
+      relatedProductsContainer.innerHTML += `
+        <div class="product-card">
+          <a href="${link}">
+            <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
+            <div class="name">${relatedProduct.name}</div>
+            <div class="price">${relatedProduct.price} $</div>
+          </a>
+        </div>
+      `;
+      }
+  });
+} else {
+
+  // If no related products, you can optionally show a message
+  const relatedProductsContainer = document.getElementById("related-products-carousel");
+  relatedProductsContainer.innerHTML = "<p>No related products available.</p>";
 }
+
 
   let selectedColor = "";
 let selectedSize = "";
@@ -191,6 +229,7 @@ document.querySelectorAll(".variation-btn").forEach(btn => {
 
     updateVariationButtonState();
   });
+  
 });
 
     

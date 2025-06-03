@@ -1,7 +1,7 @@
 [
   {
   "id": "p02",
-  "name": "OR TESTTTT SEP",
+  "name": "OR TESTTTT SEO",
   "price": 19.99,
   "image": "images/Toy.jpg",
   "category": "DogsToys",
@@ -29,10 +29,11 @@
 },
   {
     "id": "p04",
-    "name": "Interactive Tug Rope",
+    "name": "Test related Products",
     "price": 29,
     "image": "images/Toy.jpg",
-    "category": "DogsToys"
+    "category": "DogsToys",
+    "relatedProductIds": ["p02", "p05" , "p03" , "p06","p08" , "p09", "p10" , "p11"]
   },
   {
     "id": "p05",
