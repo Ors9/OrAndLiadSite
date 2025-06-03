@@ -517,6 +517,7 @@ function renderCart() {
   }, 0);
 
   const saved = totalOriginal - total;
+  savedEl.style.color = saved > 0 ? "white" : ""; 
   savedEl.textContent = saved > 0 ? `You saved: ${saved.toFixed(2)} $` : "";
 }
 
