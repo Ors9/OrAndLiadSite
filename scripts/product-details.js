@@ -22,6 +22,17 @@ function updateCart(name, price, quantity, image, buttonElement) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const existingItem = cart.find(item => item.name === name);
 
+  const product = window.currentProductData;
+  const currentQuantity = existingItem ? existingItem.quantity : 0;
+
+// בדיקה אם חורגים מהמלאי
+if (product && currentQuantity + quantity > product.stock) {
+  alert(`You can order up to ${product.stock} items of this product.`);
+
+  return;
+}
+
+
   if (existingItem) {
     existingItem.quantity += quantity;
   } else {
@@ -54,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(products => {
       const product = products.find(p => p.id === id);
       const container = document.getElementById("product-details");
-
+      window.currentProductData = product; // נשתמש בו מאוחר יותר ב-updateCart
       if (!product) {
         container.innerHTML = "<p>Product not found.</p>";
         return;
@@ -87,6 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="price">${product.price} $</span>
               </div>`
             : `<span class="price">${product.price} $</span>`}
+
+${product.stock === 0
+  ? `<p class="stock-info" style="color: gray; font-weight: bold;">🚫 Out of stock</p>`
+  : product.stock <= 5
+    ? `<p class="stock-info" style="color: red; font-weight: bold;">⏳ Only ${product.stock} left in stock!</p>`
+    : ``}
+
+
 
           ${product.tags ? `<div class="tags">
               ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
@@ -127,7 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // אירועים לאחר בניית ה־DOM
       const addToCartBtn = document.getElementById("addToCartBtn");
-let selectedColor = "";
+  if (product.stock === 0) {
+  addToCartBtn.disabled = true;
+  addToCartBtn.textContent = "Unavailable";
+}
+
+  let selectedColor = "";
 let selectedSize = "";
 
 

@@ -21,7 +21,7 @@
     "Blue": "images/Scot.jpg"
   },
   "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
-  "inStock": true,
+  "stock": 5,
   "description": "Comfortable t-shirt for your furry friend."
 },
   {
