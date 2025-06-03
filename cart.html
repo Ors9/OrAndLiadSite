@@ -400,119 +400,126 @@ main {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  function renderCart() {
-    if (!Array.isArray(cart) || cart.length === 0) {
-      table.style.display = "none";
-      cartTotalEl.textContent = "";
-      emptyCartMsg.style.display = "block";
-      cartActions.style.display = "none";
-      return;
+function renderCart() {
+  if (!Array.isArray(cart) || cart.length === 0) {
+    table.style.display = "none";
+    cartTotalEl.textContent = "";
+    emptyCartMsg.style.display = "block";
+    cartActions.style.display = "none";
+    return;
+  }
+
+  table.style.display = "table";
+  emptyCartMsg.style.display = "none";
+  cartActions.style.display = "flex";
+  tbody.innerHTML = "";
+
+  let total = 0;  // משתנה לחישוב סך הכל
+
+  // עוברים על כל הפריטים בעגלת הקניות
+  cart.forEach((item, index) => {
+    const row = document.createElement("tr");
+
+    // תא תמונה
+    const imgCell = document.createElement("td");
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = item.name;
+    img.className = "product-image";
+    imgCell.appendChild(img);
+
+    // תא שם המוצר
+    const nameCell = document.createElement("td");
+    nameCell.innerHTML = `
+      <strong>${item.name}</strong>
+      ${item.color || item.size ? `<div style="font-size: 0.85rem; color: #777;">${[item.color, item.size].filter(Boolean).join(", ")}</div>` : ""}
+    `;
+
+    // תא כמות המוצר עם כפתורים לעדכון הכמות
+    const qtyCell = document.createElement("td");
+    const minusBtn = document.createElement("button");
+    minusBtn.textContent = "−";
+    minusBtn.onclick = () => {
+      item.quantity--;
+      if (item.quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateStorage();
+      renderCart();
+    };
+
+    const plusBtn = document.createElement("button");
+    plusBtn.textContent = "+";
+    plusBtn.onclick = () => {
+      item.quantity++;
+      updateStorage();
+      renderCart();
+    };
+
+    const qtySpan = document.createElement("span");
+    qtySpan.textContent = item.quantity;
+
+    const qtyWrapper = document.createElement("div");
+    qtyWrapper.className = "qty-controls";
+    qtyWrapper.appendChild(minusBtn);
+    qtyWrapper.appendChild(qtySpan);
+    qtyWrapper.appendChild(plusBtn);
+    qtyCell.appendChild(qtyWrapper);
+
+    // תא מחיר המוצר
+    const priceCell = document.createElement("td");
+
+    if (item.oldPrice && item.oldPrice > item.price) {
+      // אם יש `oldPrice`, תראה את המחיר הישן עם קו חוצה
+      priceCell.innerHTML = `<span style="text-decoration: line-through; color: #888;">${item.oldPrice} $</span><br><strong>${item.price} $</strong>`;
+    } else {
+      // אם אין `oldPrice`, תראה רק את המחיר הנוכחי
+      priceCell.innerHTML = `<strong>${item.price} $</strong>`;
     }
 
-    table.style.display = "table";
-    emptyCartMsg.style.display = "none";
-    cartActions.style.display = "flex";
-    tbody.innerHTML = "";
+    // תא סכום המוצר (מחיר כפול כמות)
+    const sumCell = document.createElement("td");
+    const itemTotal = item.price * item.quantity;  // חישוב סך המוצר
+    total += itemTotal;  // הוספת הסכום לסך הכל
 
-    let total = 0;
-    cart.forEach((item, index) => {
-      const row = document.createElement("tr");
+    if (item.oldPrice && item.oldPrice > item.price) {
+      // אם יש `oldPrice`, תחשב את הסכום הישן, את הסכום החדש ואת החיסכון
+      const oldTotal = item.oldPrice * item.quantity;
+      const savedAmount = oldTotal - itemTotal;
 
-      // Image cell
-      const imgCell = document.createElement("td");
-      const img = document.createElement("img");
-      img.src = item.image;
-      img.alt = item.name;
-      img.className = "product-image";
-      imgCell.appendChild(img);
+      sumCell.innerHTML = `
+        <span style="text-decoration: line-through; color: #888;">${oldTotal.toFixed(2)} $</span><br>
+        <strong>${itemTotal.toFixed(2)} $</strong><br>
+        <span style="color: green; font-size: 0.85rem;">💰 You saved ${savedAmount.toFixed(2)} $</span>
+      `;
+    } else {
+      sumCell.innerHTML = `<strong>${itemTotal.toFixed(2)} $</strong>`;
+    }
 
-      // Name cell
-      const nameCell = document.createElement("td");
-        nameCell.innerHTML = `
-          <strong>${item.name}</strong>
-          ${item.color || item.size ? `<div style="font-size: 0.85rem; color: #777;">${[item.color, item.size].filter(Boolean).join(", ")}</div>` : ""}
-        `;
+    // הוספת כל תא לשורה
+    row.appendChild(imgCell);
+    row.appendChild(nameCell);
+    row.appendChild(qtyCell);
+    row.appendChild(priceCell);
+    row.appendChild(sumCell);
 
+    tbody.appendChild(row);
+  });
 
+  // עדכון סך הכל של העגלה
+  cartTotalEl.textContent = "Total: " + total.toFixed(2) + " $";
 
-      // Quantity cell with buttons
-      const qtyCell = document.createElement("td");
-      const minusBtn = document.createElement("button");
-      minusBtn.textContent = "−";
-      minusBtn.onclick = () => {
-        item.quantity--;
-        if (item.quantity <= 0) {
-          cart.splice(index, 1);
-        }
-        updateStorage();
-        renderCart();
-      };
+  // חישוב החיסכון הכולל
+  const savedEl = document.getElementById("cart-saved");
+  const totalOriginal = cart.reduce((sum, item) => {
+    const priceToUse = item.oldPrice && item.oldPrice > item.price ? item.oldPrice : item.price;
+    return sum + priceToUse * item.quantity;
+  }, 0);
 
-      const plusBtn = document.createElement("button");
-      plusBtn.textContent = "+";
-      plusBtn.onclick = () => {
-        item.quantity++;
-        updateStorage();
-        renderCart();
-      };
-
-      const qtySpan = document.createElement("span");
-      qtySpan.textContent = item.quantity;
-
-      const qtyWrapper = document.createElement("div");
-      qtyWrapper.className = "qty-controls";
-      qtyWrapper.appendChild(minusBtn);
-      qtyWrapper.appendChild(qtySpan);
-      qtyWrapper.appendChild(plusBtn);
-      qtyCell.appendChild(qtyWrapper);
-
-      // Price cell
-      const priceCell = document.createElement("td");
-
-      if (item.oldPrice && item.oldPrice > item.price) {
-        priceCell.innerHTML = `<span style="text-decoration: line-through; color: #888;">${item.oldPrice} $</span><br><strong>${item.price} $</strong>`;
-      } else {
-        priceCell.innerHTML = `<strong>${item.price} $</strong>`;
-      }
-
-      // Total cell
-        const sumCell = document.createElement("td");
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-
-if (item.oldPrice && item.oldPrice > item.price) {
-  const oldTotal = item.oldPrice * item.quantity;
-  const savedAmount = oldTotal - itemTotal;
-
-  sumCell.innerHTML = `
-    <span style="text-decoration: line-through; color: #888;">${oldTotal.toFixed(2)} $</span><br>
-    <strong>${itemTotal.toFixed(2)} $</strong><br>
-    <span style="color: green; font-size: 0.85rem;">💰 You saved ${savedAmount.toFixed(2)} $</span>
-  `;
+  const saved = totalOriginal - total;
+  savedEl.textContent = saved > 0 ? `You saved: ${saved.toFixed(2)} $` : "";
 }
 
-
-      // Append all to row
-      row.appendChild(imgCell);
-      row.appendChild(nameCell);
-      row.appendChild(qtyCell);
-      row.appendChild(priceCell);
-      row.appendChild(sumCell);
-
-      tbody.appendChild(row);
-    });
-
-    cartTotalEl.textContent = "Total: " + total.toFixed(2) + " $";
-
-    const savedEl = document.getElementById("cart-saved");
-    const totalOriginal = cart.reduce((sum, item) => {
-      const priceToUse = item.oldPrice && item.oldPrice > item.price ? item.oldPrice : item.price;
-      return sum + priceToUse * item.quantity;
-    }, 0);
-
-    const saved = totalOriginal - total;
-    savedEl.textContent = saved > 0 ? `You saved: ${saved.toFixed(2)} $` : "";
-      }
 
   renderCart();
 </script>

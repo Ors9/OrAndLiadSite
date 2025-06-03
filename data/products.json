@@ -88,6 +88,7 @@
     "id": "p12",
     "name": "Reflective Walking Harness",
     "price": 42,
+    "oldPrice": 50,
     "image": "images/Toy.jpg",
     "category": "DogsWalk"
   },
@@ -95,6 +96,7 @@
     "id": "p13",
     "name": "Durable Leash - 1.5m",
     "price": 32,
+    "oldPrice": 50,
     "image": "images/Toy.jpg",
     "tags": [ "Bestseller" ],
     "category": "DogsWalk"
