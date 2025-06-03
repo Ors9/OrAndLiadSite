@@ -271,7 +271,7 @@ body {
     width: max-content;
   }
 
-@media (max-width: 600px) {
+
 .cards-wrapper {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -308,6 +308,15 @@ body {
   .cards-wrapper::-webkit-scrollbar {
     display: none;
   }
+
+  
 }
 
-
+.section-title {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #333;
+  background-color: transparent;
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
