@@ -250,11 +250,6 @@ const metaTags = [
     head.appendChild(meta);
   });
 
-console.log("SEO Meta Tags for", name, {
-  title,
-  description,
-  keywords
-});
 
   // Optionally update document title
   document.title = title;
