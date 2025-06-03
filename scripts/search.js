@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const div = document.createElement("div");
 
           if (result.type === "category") {
-            div.textContent = `🔎 Category: ${result.title}`;
+            div.textContent = `Category: ${result.title}`;
             div.classList.add("suggestion-category");
             div.addEventListener("click", () => {
               input.value = result.title;
