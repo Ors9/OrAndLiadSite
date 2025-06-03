@@ -267,7 +267,7 @@ body {
   .cards {
     display: flex;
     flex-wrap: nowrap;
-    gap: 12px;
+    gap: 6px;
     width: max-content;
   }
 
