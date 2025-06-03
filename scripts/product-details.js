@@ -63,7 +63,7 @@ if (product && currentQuantity + quantity > product.stock) {
     setTimeout(() => {
       buttonElement.textContent = originalText;
       buttonElement.disabled = false;
-    }, 750);
+    }, 500);
   }
 }
 
