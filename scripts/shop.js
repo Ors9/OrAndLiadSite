@@ -46,17 +46,7 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-    // ✅ שינוי זמני בטקסט הכפתור
-  if (buttonElement) {
-    const originalText = buttonElement.textContent;
-    buttonElement.textContent = "✓ Added";
-    buttonElement.disabled = true; // מונע לחיצות כפולות לשנייה
 
-    setTimeout(() => {
-      buttonElement.textContent = originalText;
-      buttonElement.disabled = false;
-    }, 750);
-  }
 }
 
 // ✅ Load products from JSON and display them
@@ -92,20 +82,10 @@ item.innerHTML = `
 
             // ✅ לחץ על כל המוצר (חוץ מהכפתור) כדי לעבור לעמוד פרטים
       item.addEventListener("click", (e) => {
-        if (e.target.closest("button")) return; // אל תעבור אם לחצו על כפתור
         window.location.href = `product.html?id=${product.id}`;
       });
 
-      const button = document.createElement("button");
-      button.className = "add-to-cart-button";
-      button.textContent = "Add to Cart 🛒";
 
-    button.addEventListener("click", (e) => {
-      e.stopPropagation(); // ❗ חשוב מאוד: מונע מעבר לדף המוצר
-      updateCart(product.name, product.price, 1, product.image, button);
-    });
-
-      item.querySelector(".item-info").appendChild(button);
       container.appendChild(item);
     });
 

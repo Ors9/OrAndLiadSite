@@ -6,16 +6,24 @@
     "image": "images/Scot.jpg",
     "category": "DogsToys"
   },
-  {
-    "id": "p03",
-    "name": "Mega Fat Dog",
-    "price": 18,
-    "oldPrice": 24,
-    "image": "images/Toy.jpg",
-    "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
-    "category": "DogsGadget",
-    "description": "Great for energetic dogs. Helps reduce stress and promotes activity."
+{
+  "id": "p03",
+  "name": "OR TESTTTT",
+  "price": 19.99,
+  "image": "images/Toy.jpg",
+  "category": "DogsToys" ,
+  "variations": {
+    "color": ["Red", "Blue"],
+    "size": ["S", "M", "L"]
   },
+  "imagesByColor": {
+    "Red": "images/Scot.jpg",
+    "Blue": "images/Scot.jpg"
+  },
+  "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
+  "inStock": true,
+  "description": "Comfortable t-shirt for your furry friend."
+},
   {
     "id": "p04",
     "name": "Interactive Tug Rope",
@@ -134,6 +142,17 @@
     "price": 220,
     "image": "images/Toy.jpg",
     "category": "DogsTravel"
-  }
+  } ,
+  {
+  "id": "p21",
+  "name": "Or Checkkkk",
+  "price": 19.99,
+  "oldPrice": 29.99,
+  "image": "images/Toy.jpg",
+  "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
+  "tags": ["Comfort", "Top Rated"],
+  "description": "This is a mega plush dog toy that your pet will love!",
+  "category": "DogsToys"
+}
   
 ]

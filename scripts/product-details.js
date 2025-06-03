@@ -14,9 +14,6 @@ function updateCartCount() {
   if (countSpan) {
     countSpan.textContent = count;
     countSpan.style.display = count > 0 ? "inline-block" : "none";
-
-
-
   }
 }
 
@@ -34,7 +31,7 @@ function updateCart(name, price, quantity, image, buttonElement) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 
-    // ✅ אפקט זמני של כפתור "Added"
+  // ✅ אפקט זמני של כפתור "Added"
   if (buttonElement) {
     const originalText = buttonElement.textContent;
     buttonElement.textContent = "✓ Added";
@@ -58,64 +55,133 @@ document.addEventListener("DOMContentLoaded", () => {
       const product = products.find(p => p.id === id);
       const container = document.getElementById("product-details");
 
-      console.log("extraImages:", product.extraImages);
-
       if (!product) {
         container.innerHTML = "<p>Product not found.</p>";
         return;
       }
 
       injectDynamicSEO({
-  title: `${product.name} | PUPPERDISE`,
-  description: product.description || "High-quality product for your dog.",
-  image: location.origin + "/" + product.image,
-  url: location.href
-});
+        title: `${product.name} | PUPPERDISE`,
+        description: product.description || "High-quality product for your dog.",
+        image: location.origin + "/" + product.image,
+        url: location.href
+      });
 
-container.innerHTML = `
-  <div class="image-gallery">
-    <img src="${product.image}" class="main-img" id="mainProductImage" alt="${product.name}">
-    <div class="extra-images">
-      ${(product.extraImages || []).map(img =>
-        `<img src="${img}" alt="תמונה נוספת" onclick="document.getElementById('mainProductImage').src='${img}'">`
-      ).join("")}
+      container.innerHTML = `
+      
+        <div class="image-gallery">
+          <img src="${product.image}" class="main-img" id="mainProductImage" alt="${product.name}">
+          <div class="extra-images">
+            ${(product.extraImages || []).map(img =>
+              `<img src="${img}" alt="תמונה נוספת" onclick="document.getElementById('mainProductImage').src='${img}'">`
+            ).join("")}
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h2>${product.name}</h2>
+
+          ${product.oldPrice && product.oldPrice > product.price
+            ? `<div class="price-wrapper">
+                <span class="price old-price">${product.oldPrice} $</span>
+                <span class="price">${product.price} $</span>
+              </div>`
+            : `<span class="price">${product.price} $</span>`}
+
+          ${product.tags ? `<div class="tags">
+              ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+            </div>` : ""}
+
+ ${product.variations ? `
+  <div class="variation-buttons">
+    <div class="variation-group">
+      <p>Color:</p>
+      <div id="colorOptions">
+        ${product.variations.color.map(color => `
+          <button class="variation-btn" data-type="color" data-value="${color}">${color}</button>
+        `).join("")}
+      </div>
+    </div>
+
+    <div class="variation-group">
+      <p>Size:</p>
+      <div id="sizeOptions">
+        ${product.variations.size.map(size => `
+          <button class="variation-btn" data-type="size" data-value="${size}">${size}</button>
+        `).join("")}
+      </div>
     </div>
   </div>
-
-  <div class="product-info">
-    <h2>${product.name}</h2>
-
-    ${product.oldPrice && product.oldPrice > product.price
-      ? `<div class="price-wrapper">
-          <span class="price old-price">${product.oldPrice} $</span>
-          <span class="price">${product.price} $</span>
-         </div>`
-      : `<span class="price">${product.price} $</span>`}
-
-    ${product.tags ? `<div class="tags">
-        ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
-    </div>` : ""}
-
-    <h3 class="description-title">Product Description</h3>
-    <p class="description">${product.description || "No description available."}</p>
-
-    <div class="fixed-buttons">
-
-      <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
-<button class="add-to-cart-button" onclick="location.href='shopping.html'">← Back to Shop</button>
-    </div>
-  </div>
-`;
+` : ""}
 
 
-document.getElementById("addToCartBtn").addEventListener("click", () => {
-  updateCart(product.name, product.price, 1, product.image, document.getElementById("addToCartBtn"));
+          <h3 class="description-title">Product Description</h3>
+          <p class="description">${product.description || "No description available."}</p>
+
+          <div class="fixed-buttons">
+          <button class="add-to-cart-button" id="addToCartBtn">Add to Cart 🛒</button>
+            <button class="add-to-cart-button" onclick="location.href='shopping.html'">← Back to Shop</button>
+          </div>
+        </div>
+      `;
+
+      // אירועים לאחר בניית ה־DOM
+      const addToCartBtn = document.getElementById("addToCartBtn");
+let selectedColor = "";
+let selectedSize = "";
+
+
+
+document.querySelectorAll(".variation-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+    const value = btn.dataset.value;
+
+    if (type === "color" && product.imagesByColor && product.imagesByColor[value]) {
+      document.getElementById("mainProductImage").src = product.imagesByColor[value];
+    }
+
+    // הסרת כפתור נבחר קודם באותו סוג
+    document.querySelectorAll(`.variation-btn[data-type="${type}"]`).forEach(b => b.classList.remove("selected"));
+
+    // סימון כפתור זה
+    btn.classList.add("selected");
+
+    // עדכון הערך שנבחר
+    if (type === "color") selectedColor = value;
+    if (type === "size") selectedSize = value;
+
+    updateVariationButtonState();
+  });
 });
-      updateCartCount();
+
+    
+
+addToCartBtn.addEventListener("click", () => {
+  const mustChooseColor = Array.isArray(product.variations?.color) && product.variations.color.length > 0;
+  const mustChooseSize = Array.isArray(product.variations?.size) && product.variations.size.length > 0;
+
+  const missingColor = mustChooseColor && !selectedColor;
+  const missingSize = mustChooseSize && !selectedSize;
+
+if (missingColor || missingSize) {
+  alert("Please make sure to select all required options (such as color and size) before adding this product to your cart.");
+  return;
+}
+
+  const variation = `${selectedColor || ""}${selectedColor && selectedSize ? ", " : ""}${selectedSize || ""}`;
+
+  updateCart(
+    product.name + (variation ? ` (${variation})` : ""),
+    product.price,
+    1,
+    product.image,
+    addToCartBtn
+  );
     });
+ });
+
 });
-
-
 
 function injectDynamicSEO({ title, description, image, url }) {
   const head = document.head;
@@ -143,3 +209,4 @@ function injectDynamicSEO({ title, description, image, url }) {
   // Optionally update document title
   document.title = title;
 }
+

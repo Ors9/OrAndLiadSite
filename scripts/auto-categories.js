@@ -4,7 +4,7 @@ fetch("data/products.json")
     const container = document.querySelector(".cards-section");
     const categoriesMap = {};
 
-    // סיווג מוצרים לפי קטגוריה
+    // Group products by category
     products.forEach(product => {
       if (!categoriesMap[product.category]) {
         categoriesMap[product.category] = [];
@@ -12,7 +12,7 @@ fetch("data/products.json")
       categoriesMap[product.category].push(product);
     });
 
-    // יצירת HTML לכל קטגוריה
+    // Create HTML for each category
     Object.entries(categoriesMap).forEach(([category, items]) => {
       const section = document.createElement("div");
       section.className = "category";
@@ -29,7 +29,7 @@ fetch("data/products.json")
       section.appendChild(productDiv);
       container.appendChild(section);
 
-      // עכשיו צור את המוצרים עצמם
+      // Now render each product
       items.forEach(product => {
         const item = document.createElement("div");
         item.className = "menu-item";
@@ -46,32 +46,16 @@ fetch("data/products.json")
           </div>
         `;
 
-        item.addEventListener("click", (e) => {
-          if (e.target.closest("button")) return;
+        item.addEventListener("click", () => {
           window.location.href = `product.html?id=${product.id}`;
         });
 
-        const button = document.createElement("button");
-        button.className = "add-to-cart-button";
-        button.textContent = "Add to Cart 🛒";
-        button.addEventListener("click", (e) => {
-          e.stopPropagation();
-          updateCart(product.name, product.price, 1, product.image, button);
-        });
-
-        item.querySelector(".item-info").appendChild(button);
-        productDiv.appendChild(item);
+        productDiv.appendChild(item); // no button
       });
     });
 
     updateCartCount();
 
-    // ✅ גלילה חלקה לפי מיקום האלמנט ומרחק מההדר
+    // Smooth scroll
     scrollToHashWithOffset(window.location.hash, 300);
-
   });
-
-
-
-
-

@@ -252,5 +252,22 @@ main {
 }
 
 
+.variation-btn {
+  padding: 6px 12px;
+  margin: 5px;
+  border: 2px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.variation-btn.selected {
+  border-color: #000;
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+
 
 
