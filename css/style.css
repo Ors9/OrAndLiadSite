@@ -42,16 +42,17 @@ body {
   font-size: 1.2rem;
 }
 
-
-/* Card section */
+/* === DESKTOP === */
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 20px;
   gap: 20px;
+  padding: 40px 20px;
   background-color: #f0f0f0;
 }
+
+
 .card {
   background: white;
   border-radius: 10px;
@@ -63,28 +64,13 @@ body {
 }
 
 
-.card:hover {
-  transform: translateY(-5px);
-}
+
 .card h3 {
   color: #000000;
   margin-bottom: 10px;
 }
 
 
-@media (max-width: 600px) {
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 20px;
-  }
-
-  .card {
-    width: 100%; /* חשוב כדי שיתאים לעמודה */
-    padding: 20px 10px;
-  }
-}
 
 
 .hero h2 img {
@@ -103,9 +89,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #f0f0f0;
   gap: 2rem;
-  margin-top: 2rem;
+  padding: 12px;
 }
+
+
+
+
 
 .hero-card {
   background: white;
@@ -114,6 +105,12 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-card .btn {
+  margin-top: auto;
 }
 
 .hero-card h3 {
@@ -124,6 +121,46 @@ body {
 .hero-card p {
   font-size: 0.95rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-extra-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px; /* קצת פחות מרווח בין כרטיסים */
+  }
+
+  .hero-card {
+    width: calc(50% - 8px); /* טיפה פחות רוחב */
+    padding: 0.75rem;        /* פחות padding פנימי */
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;       /* הגבלה ידנית לגובה */
+  }
+
+  .hero-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-card p,
+  .hero-card h4 {
+    font-size: 0.75rem;
+    margin: 0.2rem 0;
+  }
+
+  .hero-card .btn {
+    margin-top: auto;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
 }
 
 
@@ -196,5 +233,80 @@ body {
   border: 2px solid #000000;
 }
 
+
+
+/* Default desktop: flex wrap (unchanged) */
+.cards-wrapper {
+  overflow: visible;
+}
+
+
+
+.card-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* === MOBILE CAROUSEL === */
+@media (max-width: 600px) {
+  .cards-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: max-content;
+  }
+
+@media (max-width: 600px) {
+  .cards-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: max-content;
+  }
+
+.card {
+  flex: 0 0 auto;
+  width: 220px; /* קובע רוחב קבוע לכרטיסים במובייל */
+  max-width: 90vw;
+  scroll-snap-align: start;
+  padding: 12px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+  .card img {
+    max-height: 140px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .cards-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 

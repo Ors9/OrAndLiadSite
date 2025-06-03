@@ -7,9 +7,9 @@ fetch("data/home-cards.json")
       const div = document.createElement("div");
       div.className = "card";
 
-      const imgHtml = card.image
-        ? `<img src="${card.image}" alt="${card.title}" style="width:100%; border-radius: 8px;">`
-        : "";
+    const imgHtml = card.image
+      ? `<img src="${card.image}" alt="${card.title}" class="card-image">`
+      : "";
 
       // קביעת קישור לפי סוג הכרטיס
       const isShoppingSection = [
