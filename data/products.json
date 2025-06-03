@@ -96,6 +96,7 @@
     "name": "Durable Leash - 1.5m",
     "price": 32,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsWalk"
   },
   {
@@ -103,6 +104,7 @@
     "name": "Orthopedic Dog Bed - Medium",
     "price": 110,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsBeds"
   },
   {
@@ -110,6 +112,7 @@
     "name": "Cozy Blanket for Crates",
     "price": 25,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsBeds"
   },
   {
@@ -117,6 +120,7 @@
     "name": "Automatic Ball Launcher",
     "price": 189,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsGadget"
   },
   {
@@ -124,6 +128,7 @@
     "name": "Water Bottle for Walks",
     "price": 35,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsGadget"
   },
   {
@@ -131,6 +136,7 @@
     "name": "Raincoat - Small Dogs",
     "price": 55,
     "image": "images/Toy.jpg",
+    "tags": [ "Bestseller" ],
     "category": "DogsFashion"
   },
   {
@@ -138,6 +144,7 @@
     "name": "Bandana Set (3-pack)",
     "price": 20,
     "image": "images/Toy.jpg",
+    "tags": ["Comfort", "Bestseller" ],
     "category": "DogsFashion"
   },
   {
@@ -145,6 +152,7 @@
     "name": "Dog Travel Crate - Airline Approved",
     "price": 220,
     "image": "images/Toy.jpg",
+    "tags": ["Comfort", "Top Rated" , "Bestseller"],
     "category": "DogsTravel"
   } ,
   {
@@ -154,8 +162,38 @@
   "oldPrice": 29.99,
   "image": "images/Toy.jpg",
   "extraImages": ["images/Scot.jpg", "images/Toy.jpg"],
-  "tags": ["Comfort", "Top Rated"],
+  "tags": ["Comfort", "Top Rated" , "Bestseller"],
   "description": "This is a mega plush dog toy that your pet will love!",
+  "category": "DogsToys"
+} ,
+{
+  "id": "p22",
+  "name": "Check From All!!!!!",
+  "price": 29.99,
+  "oldPrice": 49.99,
+  "image": "images/Toy.jpg",
+  "extraImages": [
+    "images/machine_cookies.jpg",
+    "images/sfinge.jpg",
+    "images/מופלטה.jpg",
+    "images/Toy.jpg"
+  ],
+  "description": "A cozy plush dog bed designed for comfort and warmth, perfect for small to medium-sized dogs.",
+  "tags": ["Comfort", "Bestseller", "Plush", "Dog Bed"],
+  "stock": 50,
+  "variations": {
+    "color": ["Red", "Blue", "Green"],
+    "size": ["Small", "Medium", "Large"]
+  },
+  "relatedProductIds": ["p02", "p03", "p04"],
+    "imagesByColor": {
+    "Red": "images/sfinge.jpg",
+    "Blue": "images/machine_cookies.jpg" ,
+    "Green": "images/מופלטה.jpg"
+  },
+  "metaTitle": "Cozy Plush Dog Bed | PUPPERDISE",
+  "metaDescription": "A plush dog bed that offers ultimate comfort for your furry friend. Available in multiple colors and sizes.",
+  "keywords": ["dog bed", "plush bed", "comfortable bed", "pet bed", "dog accessories"],
   "category": "DogsToys"
 }
   
