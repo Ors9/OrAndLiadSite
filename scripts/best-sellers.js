@@ -15,20 +15,32 @@ document.addEventListener("DOMContentLoaded", () => {
           // Wrap the card content in a clickable link
           const link = document.createElement("a");
           link.href = `product.html?id=${product.id}`; // Link to the product's detail page
-          link.classList.add("card-link");  // Add a class for styling if needed
+          link.classList.add("card-link");
 
           // Add inline styles to remove default link styles
           link.style.textDecoration = "none"; // Remove underline
           link.style.color = "inherit"; // Inherit the text color from the parent element (card)
           link.style.border = "none"; // Remove border
 
-          // Set the inner HTML of the card inside the link
-          link.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p><strong>$${product.price}</strong></p>
-            ${product.oldPrice ? `<p><del>$${product.oldPrice}</del></p>` : ''}
-          `;
+          // Create the button with the product name inside
+          const button = document.createElement("button");
+          button.classList.add("product-name-btn");
+          button.textContent = product.name;
+
+          // Create the image element
+          const imgElement = document.createElement("img");
+          imgElement.src = product.image;
+          imgElement.alt = product.name;
+          imgElement.classList.add("card-image");
+
+          // Create the wrapper for the button and image
+          const productNameButtonWrapper = document.createElement("div");
+          productNameButtonWrapper.classList.add("product-name-button");
+
+          // Append the button to the wrapper and the image
+          productNameButtonWrapper.appendChild(button);
+          link.appendChild(productNameButtonWrapper);
+          link.appendChild(imgElement);
 
           // Append the link to the card
           card.appendChild(link);

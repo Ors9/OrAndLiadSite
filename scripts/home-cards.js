@@ -7,35 +7,47 @@ fetch("data/home-cards.json")
       const div = document.createElement("div");
       div.className = "card";
 
-    const imgHtml = card.image
-      ? `<img src="${card.image}" alt="${card.title}" class="card-image">`
-      : "";
+      // יצירת התמונה אם יש
+      const imgElement = document.createElement("img");
+      imgElement.src = card.image;
+      imgElement.alt = card.title;
+      imgElement.classList.add("card-image");
 
-      // קביעת קישור לפי סוג הכרטיס
+      // יצירת כפתור עם שם המוצר
+      const button = document.createElement("button");
+      button.classList.add("product-name-btn");
+      button.textContent = card.title;
+
+      // יצירת הקישור
+      const link = document.createElement("a");
       const isShoppingSection = [
-        "DogsCare",
-        "DogFood",
-        "DogsToys",
-        "DogsTreats",
-        "DogsGadget",
-        "DogsBeds",
-        "DogsFashion",
-        "DogsWalk",
-        "DogsTravel"
+        "DogsCare", "DogFood", "DogsToys", "DogsTreats", "DogsGadget", "DogsBeds", "DogsFashion", "DogsWalk", "DogsTravel"
       ];
 
-      const link = isShoppingSection.includes(card.id)
+      const linkHref = isShoppingSection.includes(card.id)
         ? `shopping.html#${card.id}`
-        : `${card.id}.html`; // לדפים אחרים כמו about.html וכו'
+        : `${card.id}.html`; // לדפים אחרים כמו about.html וכו
 
-      div.innerHTML = `
-        <a href="${link}" style="text-decoration: none; color: inherit;">
-          ${imgHtml}
-          <h3>${card.title}</h3>
-          <p>${card.text || ""}</p>
-        </a>
-      `;
+      link.href = linkHref;
+      link.style.textDecoration = "none"; // Remove underline
+      link.style.color = "inherit"; // Inherit the text color from the parent element (card)
+      link.style.border = "none"; // Remove border
 
+      // יצירת כפתור בתוך תמונה, ממקם את הכפתור מעל התמונה
+      const buttonWrapper = document.createElement("div");
+      buttonWrapper.classList.add("product-name-button");
+
+      // הוספת הכפתור לתוך ה-wrapper
+      buttonWrapper.appendChild(button);
+
+      // הוספת התמונה והכפתור לכישור
+      link.appendChild(buttonWrapper);
+      link.appendChild(imgElement);
+
+      // הוספת הקישור לכרטיס
+      div.appendChild(link);
+
+      // הוספת הכרטיס ל-container
       container.appendChild(div);
     });
   });
