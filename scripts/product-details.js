@@ -175,32 +175,35 @@ injectDynamicSEO({
 // Load related products into the carousel
 if (product.relatedProductIds && product.relatedProductIds.length > 0) {
   const relatedProductsContainer = document.getElementById("related-products-carousel");
-    console.log("Related product IDs:", product.relatedProductIds);
+  console.log("Related product IDs:", product.relatedProductIds);
+
   product.relatedProductIds.forEach(relatedId => {
     const relatedProduct = products.find(p => p.id === relatedId); // Look for each related product
-          console.log("Found related product:", relatedProduct); // הדפסת המוצר שנמצא
+    console.log("Found related product:", relatedProduct); // הדפסת המוצר שנמצא
 
     if (relatedProduct) {
       const link = `product.html?id=${relatedProduct.id}`;
       console.log("Generated link for related product:", link);
+
       // Dynamically add related products to the carousel with links
       relatedProductsContainer.innerHTML += `
         <div class="product-card">
           <a href="${link}">
+            <div class="product-name-button">
+              <button class="product-name-btn">${relatedProduct.name}</button>
+            </div>
             <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
-            <div class="name">${relatedProduct.name}</div>
-            <div class="price">${relatedProduct.price} $</div>
           </a>
         </div>
       `;
-      }
+    }
   });
 } else {
-
   // If no related products, you can optionally show a message
   const relatedProductsContainer = document.getElementById("related-products-carousel");
   relatedProductsContainer.innerHTML = "<p>No related products available.</p>";
 }
+
 
 
   let selectedColor = "";

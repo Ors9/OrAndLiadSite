@@ -181,6 +181,10 @@ main {
 
 
 
+
+
+
+
 .fixed-buttons {
   position: fixed;
   bottom: 0;
@@ -223,7 +227,7 @@ main {
 /* Carousel: Apply horizontal scroll only here */
 .related-products-carousel {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   overflow-x: auto;              /* Horizontal scrolling here */
   scroll-snap-type: x mandatory; /* Snapping to items */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
@@ -235,35 +239,24 @@ main {
 /* Product cards in the carousel */
 .related-products-carousel .product-card {
   flex-shrink: 0;
-  width: 200px;                    /* Width for each card */
+  width: 300px;                    /* Width for each card */
+  height: 250px;                   /* Set height of the card */
   background: #fff;
-  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add some shadow */
   text-align: center;
-  padding: 12px 8px;
+  border: 0px;
   transition: transform 0.3s ease; /* Hover effect */
+  overflow: hidden; /* Ensure the content doesn't overflow */
 }
 
 /* Image in each product card */
 .related-products-carousel .product-card img {
   width: 100%;                 /* Take full width of the card */
-  height: 180px;               /* Fixed height for images */
+  height: 100%;                /* Set height to 100% to cover the whole card */
   object-fit: cover;           /* Ensure image covers space */
   object-position: center;     /* Center the image */
-  border-radius: 8px;          /* Rounded corners */
 }
 
-/* Mobile Styles */
-@media (max-width: 600px) {
-  .related-products-carousel {
-    gap: 12px;
-    padding: 8px;
-  }
-
-  .related-products-carousel .product-card {
-    width: 150px;               /* Smaller width for mobile */
-  }
-}
 
 /* שינוי צבע הלינק ו-ביטול הקו שמתחתיו */
 .related-products-carousel .product-card a {
@@ -276,6 +269,63 @@ main {
   color: #000; /* ניתן לשנות את הצבע בעת ריחוף */
   text-decoration: none; /* למנוע את הקו גם בריחוף */
 }
+
+
+/* צבע סרגל הגלילה */
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* צבע הסרגל */
+  border-radius: 5px;
+}
+
+
+
+/* === Product Card Styling === */
+.product-card {
+  position: relative; /* כך שהכפתור יוכל להיות ממוקם מעל התמונה */
+  overflow: hidden; /* מסתיר את החלקים החורגים */
+  width: 200px; /* רוחב הכרטיס */
+  height: 300px; /* גובה הכרטיס */
+  display: flex;
+  flex-direction: column; /* כך שנוכל למקם את הכפתור בתחתית */
+  justify-content: flex-end; /* הכפתור יהיה בתחתית הכרטיס */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* === Product Image Styling === */
+.product-card img {
+  width: 100%; /* התמונה תתפוס את כל השטח של הכרטיס */
+  height: 100%; /* התמונה תכסה את כל גובה הכרטיס */
+  object-fit: cover; /* התמונה תתפוס את כל השטח */
+  object-position: center; /* מיקום התמונה במרכז */
+}
+
+/* === Product Button Styling (On top of image) === */
+.product-name-button {
+  position: absolute; /* מיקום כפתור יחסית לכרטיס */
+  left: 50%; /* ממקם את הכפתור באמצע */
+  transform: translateX(-50%); /* מבצע תזוזה כדי למרכז את הכפתור */
+  text-align: center;
+
+  width: 80%; /* גודל הכפתור יחסית לכרטיס */
+}
+
+/* === Button Styles === */
+.product-name-btn {
+  background-color: white; /* צבע רקע לבן לכפתור */
+  color: #000000; /* טקסט שחור כהה */
+  padding: 8px 15px; /* פדינג קטן יותר */
+  cursor: pointer;
+  font-size: 14px; /* גודל גופן קטן יותר */
+  width: auto; /* גודל אוטומטי לפי התוכן */
+  display: block; /* מבצע בלוק כך שהכפתור יישב במרכז */
+  transition: background-color 0.3s, color 0.3s, border 0.3s; /* אפקט מעבר חלק */
+  border: 0px;
+}
+
+
+
 
 
 
