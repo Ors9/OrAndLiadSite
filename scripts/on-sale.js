@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Set the inner HTML of the card inside the link
           link.innerHTML = `
+            <div class="product-name-button">
+              <button class="product-name-btn">${product.name}</button> <!-- Name inside a button -->
+            </div>
             <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p><strong>$${product.price}</strong></p>
-            <p><del>$${product.oldPrice}</del></p> <!-- Show old price -->
           `;
 
           // Append the link to the card

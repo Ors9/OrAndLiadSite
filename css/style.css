@@ -81,20 +81,29 @@ main {
 
 .card {
   background: white;
-  border-radius: 10px;
-  padding: 30px 20px;
-  width: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px; /* רוחב הכרטיס */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative; /* כך שהכפתור יוכל להיות ממוקם בתחתית */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* הכפתור יופיע בתחתית */
   transition: transform 0.3s ease;
+  max-height: 250px; /* גובה מקסימלי לכרטיס */
+  overflow: hidden; /* מסתיר את החלקים החורגים */
+}
+
+.card img {
+  width: 100%;
+  height: auto; /* הבטח שהתמונה תשמור על פרופורציות */
+  max-height: 250px; /* הגבל את גובה התמונה */
+  object-fit: cover; /* התמונה תכסה את כל השטח */
+  object-position: center;
+  margin: 0; /* הסר כל margin */
 }
 
 
 
-.card h3 {
-  color: #000000;
-  margin-bottom: 10px;
-}
 
 /* === Cards Carousel (Desktop + Mobile) === */
 .cards-wrapper {
@@ -104,18 +113,12 @@ main {
   -webkit-overflow-scrolling: touch;
   padding: 16px;
   gap: 12px;
+  
   background-color: #f0f0f0;
 }
 
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  
-}
+
 
 .cards-wrapper::-webkit-scrollbar {
   height: 8px;
@@ -138,7 +141,6 @@ main {
 .card {
   flex: 0 0 auto;
   width: 300px;                  /* זהה ל-hero-card */
-  border-radius: 12px;          /* זהה */
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* זהה ל-hero-card */
   scroll-snap-align: start;
@@ -147,6 +149,8 @@ main {
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -164,7 +168,7 @@ main {
 .hero-card {
   background: white;
   padding: 1.5rem;
-  border-radius: 12px;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
@@ -246,84 +250,32 @@ main {
   border: 2px solid #000000;
 }
 
-/* === Mobile (max-width: 600px) === */
-@media (max-width: 600px) {
-  .container {
-    padding: 0 16px;
-  }
 
-  .hero-extra-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .hero-card {
-    width: calc(50% - 8px);
-    padding: 0.75rem;
-    font-size: 0.85rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 200px;
-  }
-
-  .hero-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .hero-card p,
-  .hero-card h4 {
-    font-size: 0.75rem;
-    margin: 0.2rem 0;
-  }
-
-  .hero-card .btn {
-    margin-top: auto;
-    padding: 6px 12px;
-    font-size: 0.75rem;
-  }
-
-  .cards-wrapper {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 4px;
-    margin: 0;
-  }
-
-  .cards {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 12px;
-    width: max-content;
-  }
-
-  .card {
-    flex: 0 0 auto;
-    width: 220px;
-    max-width: 90vw;
-    scroll-snap-align: start;
-    padding: 12px;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-
-  .card img {
-    max-height: auto;
-    object-fit: contain;
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-
-  .cards-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .section-title {
-    text-align: left;
-  }
+.product-name-button {
+  position: absolute; /* מיקום כפתור יחסית לכרטיס */
+  bottom: 10px; /* המיקום של הכפתור יהיה 10px מהחלק התחתון של הקונטיינר */
+  left: 50%; /* ממקם את הכפתור באמצע */
+  transform: translateX(-50%); /* מבצע תזוזה כדי למרכז את הכפתור */
+  text-align: center;
+  margin-bottom: 5px;
+  width: 80%; /* גודל הכפתור יחסית לקונטיינר */
 }
+
+.product-name-btn {
+  background-color: white; /* צבע רקע לבן לכפתור */
+  color: #000000; /* טקסט שחור כהה */
+  padding: 8px 15px; /* פדינג קטן יותר */
+  cursor: pointer;
+  font-size: 14px; /* גודל גופן קטן יותר */
+  width: auto; /* גודל אוטומטי לפי התוכן */
+  display: block; /* מבצע בלוק כך שהכפתור יישב במרכז */
+  border-radius: 25px; /* פינות מעוגלות לעיצוב עדין */
+  transition: background-color 0.3s, color 0.3s, border 0.3s; /* אפקט מעבר חלק */
+  border: 0px;
+}
+
+
+
+
+
+
