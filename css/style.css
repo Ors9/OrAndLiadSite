@@ -74,16 +74,47 @@ main {
   font-size: 1.4rem;
   text-align: center;
   color: #000;
-  background-color: #f0f0f0;
-  margin: 0;
-  height: 120px;
-  padding: 8px 12px;
-  font-weight: 600;
-  line-height: 1.3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: transparent;
+  
+  margin-top: 30px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  padding: 0;             /* Remove padding from title */
+  line-height: normal;    /* Avoid any unexpected line-height spacing */
+  display: block;         /* Ensure it behaves as a block-level element */
 }
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .section-title {
+    text-align: left;        /* Align text to the left on smaller screens */
+    margin-left: 10px;       /* Optional: Reduce left margin for small screens */
+  }
+}
+
+h1.section-title {
+  font-size: 1.4rem;
+  text-align: center;        /* Default to center */
+  color: #000;
+  background-color: transparent;
+  
+  margin-top: 30px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  padding: 0;
+  line-height: normal;
+  display: block;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  h1.section-title {
+    text-align: left;        /* Align text to the left on smaller screens */
+    margin-left: 10px;       /* Optional: Reduce left margin for small screens */
+  }
+}
+
+
 
 /* === Cards Grid (Desktop) === */
 .cards {
@@ -127,10 +158,10 @@ main {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 16px;
-  gap: 12px;
-  
-  background-color: #f0f0f0;
+  padding: 0;
+  margin: 0;
+
+  background-color: #f9f9f9;
 }
 
 
@@ -176,7 +207,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   gap: 2rem;
   padding: 12px;
 }
@@ -211,7 +242,7 @@ main {
 
 /* === Newsletter === */
 .newsletter {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   padding: 3rem 1rem;
   text-align: center;
 }
