@@ -17,7 +17,7 @@
   "category": "DogsToys" ,
   "variations": {
     "color": ["Red", "Blue"],
-    "size": ["S", "M", "L"]
+    "size": ["Small", "Medium", "Large"]
   },
   "imagesByColor": {
     "Red": "images/Scot.jpg",
